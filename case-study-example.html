@@ -251,6 +251,17 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
 /* ---------- misc ---------- */
 .divider{height:1px;background:var(--line-light);margin:0}
 .divider.dark{background:var(--line-dark)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery-grid .g-item{aspect-ratio:4/3;border:1px solid var(--line-light);border-radius:4px;background:linear-gradient(160deg,#eeede8,#e2e0d8);display:flex;align-items:center;justify-content:center;color:#a6a49b;font-family:var(--font-mono);font-size:11px;text-align:center;padding:8px}
+.gallery-grid.dark .g-item{border-color:var(--line-dark);background:linear-gradient(160deg,#1c1c1c,#111);color:#5a5954}
+.video-row{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.video-box{aspect-ratio:16/9;border:1px solid var(--line-light);border-radius:4px;background:linear-gradient(160deg,#eeede8,#e2e0d8);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a6a49b;font-family:var(--font-mono);font-size:11.5px;gap:10px;text-align:center;padding:12px}
+.video-box.dark{border-color:var(--line-dark);background:linear-gradient(160deg,#1c1c1c,#111);color:#5a5954}
+.play-triangle{width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:15px solid currentColor;margin-left:4px}
+.play-circle{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center}
+.video-caption{font-size:12px}
+.prose p{font-size:14.5px;line-height:1.7;color:var(--ink-soft);margin-bottom:14px;max-width:680px}
+.section-dark .prose p{color:#a9a8a2}
 .badge-diagram{
   border:1px solid var(--line-dark);border-radius:4px;background:var(--bg-dark-2);
   padding:28px;display:flex;align-items:center;justify-content:center;color:#5a5954;font-family:var(--font-mono);font-size:12px;min-height:220px;
@@ -368,12 +379,49 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
   <div class="container">
     <div class="eyebrow">04 · Outcome</div>
     <h2 style="margin:12px 0 24px">Measured results</h2>
-    <div class="stat-row" style="margin-bottom:24px;grid-template-columns:repeat(3,1fr)">
+    <div class="stat-row" style="margin-bottom:24px">
       <div class="stat"><div class="num">14 days</div><div class="label">install to full operation</div></div>
       <div class="stat"><div class="num">0</div><div class="label">guest-reported odour complaints since</div></div>
       <div class="stat"><div class="num">100%</div><div class="label">compliance on inspection</div></div>
+      <div class="stat"><div class="num">24/7</div><div class="label">automatic operation, minimal supervision</div></div>
     </div>
     <p style="color:#a9a8a2;font-size:14px;max-width:600px">Since installation, the property has run both systems with minimal operator involvement and no reported odour issues — freeing facilities staff to focus elsewhere.</p>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <div class="section-head on-light">
+      <div class="eyebrow">Gallery</div>
+      <h2>The install, in photos</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item">Utility room, before install</div>
+      <div class="g-item">Tusker Gold unit arriving on site</div>
+      <div class="g-item">Plug-and-play connection in progress</div>
+      <div class="g-item">Standard unit installed on guest floor</div>
+      <div class="g-item">Control panel, first power-on</div>
+      <div class="g-item">Completed install, utility room</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Full walkthrough</div>
+      <h2>Watch the install</h2>
+    </div>
+    <div class="video-row">
+      <div>
+        <div class="video-box dark"><div class="play-circle"><div class="play-triangle"></div></div><div class="video-caption">Site walkthrough, before install</div></div>
+        <p class="sub" style="margin-top:10px;color:#a9a8a2;font-size:13px">A tour of the property's original sewage setup and the constraints the install had to work around.</p>
+      </div>
+      <div>
+        <div class="video-box dark"><div class="play-circle"><div class="play-triangle"></div></div><div class="video-caption">Install day, start to finish</div></div>
+        <p class="sub" style="margin-top:10px;color:#a9a8a2;font-size:13px">The full 14-day install compressed into a short walkthrough, from delivery to first automated cycle.</p>
+      </div>
+    </div>
   </div>
 </section>
 

@@ -251,6 +251,17 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
 /* ---------- misc ---------- */
 .divider{height:1px;background:var(--line-light);margin:0}
 .divider.dark{background:var(--line-dark)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery-grid .g-item{aspect-ratio:4/3;border:1px solid var(--line-light);border-radius:4px;background:linear-gradient(160deg,#eeede8,#e2e0d8);display:flex;align-items:center;justify-content:center;color:#a6a49b;font-family:var(--font-mono);font-size:11px;text-align:center;padding:8px}
+.gallery-grid.dark .g-item{border-color:var(--line-dark);background:linear-gradient(160deg,#1c1c1c,#111);color:#5a5954}
+.video-row{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.video-box{aspect-ratio:16/9;border:1px solid var(--line-light);border-radius:4px;background:linear-gradient(160deg,#eeede8,#e2e0d8);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a6a49b;font-family:var(--font-mono);font-size:11.5px;gap:10px;text-align:center;padding:12px}
+.video-box.dark{border-color:var(--line-dark);background:linear-gradient(160deg,#1c1c1c,#111);color:#5a5954}
+.play-triangle{width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:15px solid currentColor;margin-left:4px}
+.play-circle{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center}
+.video-caption{font-size:12px}
+.prose p{font-size:14.5px;line-height:1.7;color:var(--ink-soft);margin-bottom:14px;max-width:680px}
+.section-dark .prose p{color:#a9a8a2}
 .badge-diagram{
   border:1px solid var(--line-dark);border-radius:4px;background:var(--bg-dark-2);
   padding:28px;display:flex;align-items:center;justify-content:center;color:#5a5954;font-family:var(--font-mono);font-size:12px;min-height:220px;
@@ -343,6 +354,18 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
 
 <section class="section-light">
   <div class="container two-col">
+    <div class="prose">
+      <div class="eyebrow">Overview</div>
+      <h2 style="font-size:24px;margin:10px 0 14px">Full visibility, minimal supervision.</h2>
+      <p>Tusker Gold is Dubhemerak's heavy-duty sewage treatment plant — compact and quiet enough for live commercial sites, with a fully automatic AI system that handles day-to-day operation without constant supervision.</p>
+      <p>A Schneider Harmony 5" touch display and manual-switch control panel give full visibility into the system at any time, while an anti-rust, powder-coated body is built to hold up in demanding outdoor or semi-outdoor installations.</p>
+    </div>
+    <div class="media-block">Tusker Gold — installed at a hotel utility site</div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container two-col">
     <div class="media-block">demo video — Tusker Gold in operation</div>
     <div>
       <div class="eyebrow">Fully automatic — AI system</div>
@@ -384,6 +407,52 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
         <div style="border:1px solid var(--line-light);border-radius:3px;padding:12px 16px;display:flex;justify-content:space-between;font-size:13.5px"><span>Model 1524</span><span style="color:var(--ink-soft)">N Line 07k x 15h x 365</span></div>
         <div style="border:1px solid var(--line-light);border-radius:3px;padding:12px 16px;display:flex;justify-content:space-between;font-size:13.5px"><span>Model 5024</span><span style="color:var(--ink-soft)">N Line 50k x 24h x 365</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <div class="section-head on-light">
+      <div class="eyebrow">Gallery</div>
+      <h2>See it up close</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item">Front view</div>
+      <div class="g-item">Touch display close-up</div>
+      <div class="g-item">Control panel detail</div>
+      <div class="g-item">Installed at a hotel utility site</div>
+      <div class="g-item">Side profile</div>
+      <div class="g-item">Plug-and-play connector detail</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">In action</div>
+      <h2>Watch it work</h2>
+    </div>
+    <div class="video-row">
+      <div>
+        <div class="video-box dark"><div class="play-circle"><div class="play-triangle"></div></div><div class="video-caption">Product overview</div></div>
+        <p class="sub" style="margin-top:10px;color:#a9a8a2;font-size:13px">A look at Tusker Gold's fully automatic AI system in operation.</p>
+      </div>
+      <div>
+        <div class="video-box dark"><div class="play-circle"><div class="play-triangle"></div></div><div class="video-caption">Installation walkthrough</div></div>
+        <p class="sub" style="margin-top:10px;color:#a9a8a2;font-size:13px">From delivery to first automated cycle, on a live hotel site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <div class="prose">
+      <div class="eyebrow">Maintenance &amp; support</div>
+      <h2 style="font-size:22px;margin:10px 0 14px">Keeping it running</h2>
+      <p>Fully automatic models are designed to run with minimal operator input; semi-automatic models ask for a bit more day-to-day attention. Either way, the touch display and manual-switch panel make it straightforward to check status and intervene if needed.</p>
     </div>
   </div>
 </section>

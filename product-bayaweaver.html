@@ -251,6 +251,17 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
 /* ---------- misc ---------- */
 .divider{height:1px;background:var(--line-light);margin:0}
 .divider.dark{background:var(--line-dark)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery-grid .g-item{aspect-ratio:4/3;border:1px solid var(--line-light);border-radius:4px;background:linear-gradient(160deg,#eeede8,#e2e0d8);display:flex;align-items:center;justify-content:center;color:#a6a49b;font-family:var(--font-mono);font-size:11px;text-align:center;padding:8px}
+.gallery-grid.dark .g-item{border-color:var(--line-dark);background:linear-gradient(160deg,#1c1c1c,#111);color:#5a5954}
+.video-row{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.video-box{aspect-ratio:16/9;border:1px solid var(--line-light);border-radius:4px;background:linear-gradient(160deg,#eeede8,#e2e0d8);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a6a49b;font-family:var(--font-mono);font-size:11.5px;gap:10px;text-align:center;padding:12px}
+.video-box.dark{border-color:var(--line-dark);background:linear-gradient(160deg,#1c1c1c,#111);color:#5a5954}
+.play-triangle{width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:15px solid currentColor;margin-left:4px}
+.play-circle{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center}
+.video-caption{font-size:12px}
+.prose p{font-size:14.5px;line-height:1.7;color:var(--ink-soft);margin-bottom:14px;max-width:680px}
+.section-dark .prose p{color:#a9a8a2}
 .badge-diagram{
   border:1px solid var(--line-dark);border-radius:4px;background:var(--bg-dark-2);
   padding:28px;display:flex;align-items:center;justify-content:center;color:#5a5954;font-family:var(--font-mono);font-size:12px;min-height:220px;
@@ -343,6 +354,18 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
 
 <section class="section-light">
   <div class="container two-col">
+    <div class="prose">
+      <div class="eyebrow">Overview</div>
+      <h2 style="font-size:24px;margin:10px 0 14px">Heavy-duty performance, without a heavy footprint.</h2>
+      <p>Bayaweaver is Dubhemerak's fully automatic, AI-assisted water treatment system — built for sites that need heavy-duty performance without a heavy operational footprint. It's chemical-free, largely maintenance-free, and designed around zero liquid discharge.</p>
+      <p>Available across five model sizes (0724 through 5024), Bayaweaver is customized to the effluent quality and quantity of each site, and its plug-and-play electrical and pipe connectors keep installation fast even in space-constrained locations.</p>
+    </div>
+    <div class="media-block">Bayaweaver — installed at an industrial site</div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container two-col">
     <div class="media-block">demo video — Bayaweaver in operation</div>
     <div>
       <div class="eyebrow">Plug &amp; play</div>
@@ -390,6 +413,52 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
       <div style="border:1px solid var(--line-light);border-radius:3px;padding:12px 16px;display:flex;justify-content:space-between;font-size:13.5px"><span>Model 2524</span><span style="color:var(--ink-soft)">N Line 25k x 24h x 365</span></div>
       <div style="border:1px solid var(--line-light);border-radius:3px;padding:12px 16px;display:flex;justify-content:space-between;font-size:13.5px"><span>Model 3524</span><span style="color:var(--ink-soft)">N Line 35k x 24h x 365</span></div>
       <div style="border:1px solid var(--line-light);border-radius:3px;padding:12px 16px;display:flex;justify-content:space-between;font-size:13.5px"><span>Model 5024</span><span style="color:var(--ink-soft)">N Line 50k x 24h x 365</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <div class="section-head on-light">
+      <div class="eyebrow">Gallery</div>
+      <h2>See it up close</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item">Front view</div>
+      <div class="g-item">Schneider connector detail</div>
+      <div class="g-item">Installed at an industrial site</div>
+      <div class="g-item">Control panel close-up</div>
+      <div class="g-item">Side profile with pipe connectors</div>
+      <div class="g-item">Unit footprint in a utility yard</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">In action</div>
+      <h2>Watch it work</h2>
+    </div>
+    <div class="video-row">
+      <div>
+        <div class="video-box dark"><div class="play-circle"><div class="play-triangle"></div></div><div class="video-caption">Product overview</div></div>
+        <p class="sub" style="margin-top:10px;color:#a9a8a2;font-size:13px">How Bayaweaver's AI system manages treatment automatically.</p>
+      </div>
+      <div>
+        <div class="video-box dark"><div class="play-circle"><div class="play-triangle"></div></div><div class="video-caption">Installation walkthrough</div></div>
+        <p class="sub" style="margin-top:10px;color:#a9a8a2;font-size:13px">Plug-and-play install, from connection to first cycle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <div class="prose">
+      <div class="eyebrow">Maintenance &amp; support</div>
+      <h2 style="font-size:22px;margin:10px 0 14px">Keeping it running</h2>
+      <p>Bayaweaver is built to run with limited operator involvement — semi-automatic models need occasional supervision, while fully automatic models are designed to largely run themselves. Either way, the compact, movable design keeps servicing straightforward when it's needed.</p>
     </div>
   </div>
 </section>

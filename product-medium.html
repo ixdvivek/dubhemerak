@@ -251,6 +251,17 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
 /* ---------- misc ---------- */
 .divider{height:1px;background:var(--line-light);margin:0}
 .divider.dark{background:var(--line-dark)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery-grid .g-item{aspect-ratio:4/3;border:1px solid var(--line-light);border-radius:4px;background:linear-gradient(160deg,#eeede8,#e2e0d8);display:flex;align-items:center;justify-content:center;color:#a6a49b;font-family:var(--font-mono);font-size:11px;text-align:center;padding:8px}
+.gallery-grid.dark .g-item{border-color:var(--line-dark);background:linear-gradient(160deg,#1c1c1c,#111);color:#5a5954}
+.video-row{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.video-box{aspect-ratio:16/9;border:1px solid var(--line-light);border-radius:4px;background:linear-gradient(160deg,#eeede8,#e2e0d8);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a6a49b;font-family:var(--font-mono);font-size:11.5px;gap:10px;text-align:center;padding:12px}
+.video-box.dark{border-color:var(--line-dark);background:linear-gradient(160deg,#1c1c1c,#111);color:#5a5954}
+.play-triangle{width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:15px solid currentColor;margin-left:4px}
+.play-circle{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center}
+.video-caption{font-size:12px}
+.prose p{font-size:14.5px;line-height:1.7;color:var(--ink-soft);margin-bottom:14px;max-width:680px}
+.section-dark .prose p{color:#a9a8a2}
 .badge-diagram{
   border:1px solid var(--line-dark);border-radius:4px;background:var(--bg-dark-2);
   padding:28px;display:flex;align-items:center;justify-content:center;color:#5a5954;font-family:var(--font-mono);font-size:12px;min-height:220px;
@@ -336,6 +347,18 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
 <div class="divider"></div>
 
 <section class="section-light">
+  <div class="container two-col">
+    <div class="prose">
+      <div class="eyebrow">Overview</div>
+      <h2 style="font-size:24px;margin:10px 0 14px">A compact starting point, without compromises.</h2>
+      <p>Medium is the entry point into Dubhemerak's drinking water range — a compact, twin-cylinder gravity system built for single-storied homes up to 1500 sq.ft. It uses the same chemical-free, electricity-free filtration as every model in the range, sized down for smaller daily demand.</p>
+      <p>Because it runs on gravity alone, Medium works reliably even where power supply is inconsistent, and because it uses no chemicals, there's nothing to reorder, measure or store — just a manual backwash every 5–7 days.</p>
+    </div>
+    <div class="media-block">Medium — installed in a home utility area</div>
+  </div>
+</section>
+
+<section class="section-light">
   <div class="container">
     <div class="feat-grid">
       <div class="feat"><i class="ti ti-bolt-off"></i><div class="t">Electricity free</div><div class="d">Runs entirely on gravity</div></div>
@@ -363,6 +386,52 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
           <tr><td>Specification</td><td>5 taps can use at a time</td></tr>
         </table>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <div class="section-head on-light">
+      <div class="eyebrow">Gallery</div>
+      <h2>See it up close</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item">Front view</div>
+      <div class="g-item">Cylinder close-up</div>
+      <div class="g-item">Outlet & tap connection</div>
+      <div class="g-item">Installed in a home utility area</div>
+      <div class="g-item">Side profile</div>
+      <div class="g-item">Backwash valve detail</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">In action</div>
+      <h2>Watch it work</h2>
+    </div>
+    <div class="video-row">
+      <div>
+        <div class="video-box dark"><div class="play-circle"><div class="play-triangle"></div></div><div class="video-caption">Product overview</div></div>
+        <p class="sub" style="margin-top:10px;color:#a9a8a2;font-size:13px">A short walkthrough of how Medium filters water without electricity or chemicals.</p>
+      </div>
+      <div>
+        <div class="video-box dark"><div class="play-circle"><div class="play-triangle"></div></div><div class="video-caption">Backwash walkthrough</div></div>
+        <p class="sub" style="margin-top:10px;color:#a9a8a2;font-size:13px">How to perform the manual backwash — takes under 5 minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <div class="prose">
+      <div class="eyebrow">Maintenance &amp; support</div>
+      <h2 style="font-size:22px;margin:10px 0 14px">Keeping it running</h2>
+      <p>Medium asks for very little upkeep: a manual backwash every 5–7 days, and no filter media replacement for the life of the unit — proven over 33 years in the field. There's no electrician, no chemical supplier and no service contract required to keep it running.</p>
     </div>
   </div>
 </section>

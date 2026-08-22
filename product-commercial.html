@@ -251,6 +251,17 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
 /* ---------- misc ---------- */
 .divider{height:1px;background:var(--line-light);margin:0}
 .divider.dark{background:var(--line-dark)}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery-grid .g-item{aspect-ratio:4/3;border:1px solid var(--line-light);border-radius:4px;background:linear-gradient(160deg,#eeede8,#e2e0d8);display:flex;align-items:center;justify-content:center;color:#a6a49b;font-family:var(--font-mono);font-size:11px;text-align:center;padding:8px}
+.gallery-grid.dark .g-item{border-color:var(--line-dark);background:linear-gradient(160deg,#1c1c1c,#111);color:#5a5954}
+.video-row{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.video-box{aspect-ratio:16/9;border:1px solid var(--line-light);border-radius:4px;background:linear-gradient(160deg,#eeede8,#e2e0d8);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#a6a49b;font-family:var(--font-mono);font-size:11.5px;gap:10px;text-align:center;padding:12px}
+.video-box.dark{border-color:var(--line-dark);background:linear-gradient(160deg,#1c1c1c,#111);color:#5a5954}
+.play-triangle{width:0;height:0;border-top:9px solid transparent;border-bottom:9px solid transparent;border-left:15px solid currentColor;margin-left:4px}
+.play-circle{width:46px;height:46px;border-radius:50%;border:1.5px solid currentColor;display:flex;align-items:center;justify-content:center}
+.video-caption{font-size:12px}
+.prose p{font-size:14.5px;line-height:1.7;color:var(--ink-soft);margin-bottom:14px;max-width:680px}
+.section-dark .prose p{color:#a9a8a2}
 .badge-diagram{
   border:1px solid var(--line-dark);border-radius:4px;background:var(--bg-dark-2);
   padding:28px;display:flex;align-items:center;justify-content:center;color:#5a5954;font-family:var(--font-mono);font-size:12px;min-height:220px;
@@ -336,6 +347,18 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
 <div class="divider"></div>
 
 <section class="section-light">
+  <div class="container two-col">
+    <div class="prose">
+      <div class="eyebrow">Overview</div>
+      <h2 style="font-size:24px;margin:10px 0 14px">Sized to the property, not a fixed tier.</h2>
+      <p>Commercial is built for sites where demand doesn't follow a fixed daily number — apartments, hotels and hospitals with variable, often high-volume draw. Rather than a fixed capacity tier, it's a customized design built around the property's actual usage pattern.</p>
+      <p>Twin cylinders with Super Jet Technology let Commercial collect treated water in bulk, so it suits properties with dedicated storage tanks as well as those drawing directly on demand.</p>
+    </div>
+    <div class="media-block">Commercial — installed in a hotel utility room</div>
+  </div>
+</section>
+
+<section class="section-light">
   <div class="container">
     <div class="feat-grid">
       <div class="feat"><i class="ti ti-bolt-off"></i><div class="t">Electricity free</div><div class="d">Runs entirely on gravity</div></div>
@@ -363,6 +386,52 @@ footer .fbottom{border-top:1px solid var(--line-dark);padding-top:20px;font-size
           <tr><td>Specification</td><td>Can collect treated water bulkily</td></tr>
         </table>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <div class="section-head on-light">
+      <div class="eyebrow">Gallery</div>
+      <h2>See it up close</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item">Front view</div>
+      <div class="g-item">Super Jet cylinder detail</div>
+      <div class="g-item">Installed in a hotel utility room</div>
+      <div class="g-item">Bulk outlet connection</div>
+      <div class="g-item">Full unit at a hospital site</div>
+      <div class="g-item">Control valve close-up</div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">In action</div>
+      <h2>Watch it work</h2>
+    </div>
+    <div class="video-row">
+      <div>
+        <div class="video-box dark"><div class="play-circle"><div class="play-triangle"></div></div><div class="video-caption">Product overview</div></div>
+        <p class="sub" style="margin-top:10px;color:#a9a8a2;font-size:13px">How Commercial is sized and configured for high-volume sites.</p>
+      </div>
+      <div>
+        <div class="video-box dark"><div class="play-circle"><div class="play-triangle"></div></div><div class="video-caption">Installation case</div></div>
+        <p class="sub" style="margin-top:10px;color:#a9a8a2;font-size:13px">How a Commercial unit was sized and installed for a mid-size hotel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-light">
+  <div class="container">
+    <div class="prose">
+      <div class="eyebrow">Maintenance &amp; support</div>
+      <h2 style="font-size:22px;margin:10px 0 14px">Keeping it running</h2>
+      <p>Commercial's customized sizing means maintenance schedules are set per site, but the underlying task stays the same as the rest of the range: periodic manual backwash, no chemicals, no filter media replacement. Our team confirms the specific schedule as part of installation.</p>
     </div>
   </div>
 </section>
