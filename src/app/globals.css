@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   Design tokens — pulled from the Figma file (Home – v3, 07 Oct)
+------------------------------------------------------------------- */
+@theme {
+  --color-brand: #0097da;
+  --color-ink: #191818;
+  --color-line: #2d2c2c;
+  --color-mist: #e8edf1;
+  --color-muted: #9ca3af;
+  --color-divider: #2d3139;
+  --color-star: #fb9826;
+
+  --font-display: var(--font-kanit), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-42dot), ui-sans-serif, system-ui, sans-serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-white font-sans text-black antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand text-white;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-4 outline-brand;
+  }
+}
+
+/* Lenis smooth scroll — https://github.com/darkroomengineering/lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+@utility container-x {
+  @apply mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12 xl:px-[120px];
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
