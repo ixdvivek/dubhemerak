@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { navLinks } from "@/lib/content";
 import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
@@ -17,6 +19,8 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(`${href}/`));
 
   useEffect(() => {
     let last = window.scrollY;
@@ -69,7 +73,7 @@ export function Navbar() {
       )}
     >
       <nav aria-label="Primary" className="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-4 sm:px-8 lg:py-5 xl:px-8">
-        <a href="#" data-nav-item aria-label="Dubhe Merak — home" className="shrink-0">
+        <Link href="/" data-nav-item aria-label="Dubhe Merak — home" className="shrink-0">
           <Image
             src="/images/logo-dubhe-merak-white.png"
             alt="Dubhe Merak"
@@ -78,28 +82,28 @@ export function Navbar() {
             preload
             className="h-auto w-[200px] sm:w-[240px] xl:w-[281px]"
           />
-        </a>
+        </Link>
 
         <ul className="hidden items-center gap-[15px] lg:flex">
-          {navLinks.map((link, i) => (
+          {navLinks.map((link) => (
             <li key={link.label} data-nav-item>
-              <a
+              <Link
                 href={link.href}
-                aria-current={i === 0 ? "page" : undefined}
+                aria-current={isActive(link.href) ? "page" : undefined}
                 className={clsx(
                   "block rounded-2xl px-4 py-2 font-display text-sm leading-4 tracking-[0.5px] text-white transition-colors duration-300",
-                  i === 0 ? "bg-black/40 font-medium" : "font-light hover:bg-white/10",
+                  isActive(link.href) ? "bg-black/40 font-medium" : "font-light hover:bg-white/10",
                 )}
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
 
         <div className="flex items-center gap-3">
           <div data-nav-item className="hidden sm:block">
-            <Button href="#contact">Enquire Now</Button>
+            <Button href="/contact">Enquire Now</Button>
           </div>
           <button
             type="button"
@@ -135,18 +139,22 @@ export function Navbar() {
         <ul className="flex flex-col">
           {navLinks.map((link) => (
             <li key={link.label} data-menu-item className="border-b border-white/15">
-              <a
+              <Link
                 href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
                 onClick={() => setOpen(false)}
-                className="block py-4 font-display text-3xl font-light text-white"
+                className={clsx(
+                  "block py-4 font-display text-3xl text-white",
+                  isActive(link.href) ? "font-normal" : "font-light text-white/80",
+                )}
               >
                 {link.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
         <div data-menu-item className="mt-8 sm:hidden">
-          <Button href="#contact" onClick={() => setOpen(false)}>
+          <Button href="/contact" onClick={() => setOpen(false)}>
             Enquire Now
           </Button>
         </div>

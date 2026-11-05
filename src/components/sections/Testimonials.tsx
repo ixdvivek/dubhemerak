@@ -24,7 +24,7 @@ export function Testimonials() {
             </p>
           </div>
           <div data-reveal>
-            <Button href="#">View Testimonials</Button>
+            <Button href="/case-studies">View Testimonials</Button>
           </div>
         </div>
 

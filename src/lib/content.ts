@@ -11,13 +11,13 @@ export const contact = {
 } as const;
 
 export const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#" },
-  { label: "Technology", href: "#" },
-  { label: "Products", href: "#" },
-  { label: "Applications", href: "#" },
-  { label: "Case Studies", href: "#" },
-  { label: "Contact", href: "#" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Technology", href: "/technology" },
+  { label: "Products", href: "/products" },
+  { label: "Applications", href: "/applications" },
+  { label: "Case Studies", href: "/case-studies" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const hero = {
@@ -45,6 +45,8 @@ export type Product = {
   /** `position` is the desktop focal point; `mobilePosition` keeps the product in frame on narrow screens. */
   image: { src: string; alt: string; position?: string; mobilePosition?: string };
   overlay?: { src: string; alt: string };
+  /** Detail page, once it exists. */
+  href?: string;
   align?: "left" | "right";
   gradient?: string;
 };
@@ -79,6 +81,7 @@ export const productLines: ProductLine[] = [
         description:
           "A heavy-duty, fully automatic AI water treatment machine. Chemical-free, maintenance-free and designed for zero liquid discharge.",
         tags: ["Fully automatic AI system", "Chemical free", "ZLD"],
+        href: "/products/bayaweaver",
         image: { src: "/images/bayaweaver.webp", alt: "Bayaweaver treatment unit installed in a sunlit apartment interior", mobilePosition: "82% 50%" },
         gradient: shade,
       },
@@ -160,13 +163,16 @@ export const about = {
   eyebrow: "About us",
   title: "Three decades of making water simple.",
   body: "Since 1993, we have built reliable, sustainable water treatment — from gravity-powered drinking water systems under Dubhe Richus to fully automatic effluent plants under Dubhe Merak. One company, two disciplines, one standard.",
-  cta: { label: "Know more about us", href: "#" },
+  cta: { label: "Know more about us", href: "/about" },
   image: { src: "/images/about.webp", alt: "Dubhe Richus twin-cylinder filter installed beside a home entrance" },
 } as const;
 
 export const caseStudies = [
   {
     kicker: "Hospital · Ernakulam",
+    category: "Hospitals",
+    href: "/case-studies",
+    products: ["Tusker Gold"],
     title: "Cutting effluent non - compliance to zero",
     icon: "/images/icons/icon-trending-down.svg",
     metric: "98%",
@@ -175,6 +181,9 @@ export const caseStudies = [
   },
   {
     kicker: "Hotel · Kochi",
+    category: "Hotels",
+    href: "/case-studies/hotel-kochi",
+    products: ["Tusker Gold", "Standard"],
     title: "Odour-free sewage handling in a live property",
     icon: "/images/icons/icon-calendar.svg",
     metric: "14",
@@ -183,6 +192,9 @@ export const caseStudies = [
   },
   {
     kicker: "Small business · Kerala",
+    category: "Small business",
+    href: "/case-studies",
+    products: ["Standard"],
     title: "Switching to chemical - free drinking water",
     icon: "/images/icons/icon-rupee.svg",
     metric: "00",
@@ -256,8 +268,23 @@ export const footer = {
   headline: ["Engineered for tomorrow.", "Trusted since 1993."],
   body: "Private commercial enquiries — hospitals, hotels, small businesses — get a response within one business day.",
   groups: [
-    { title: "Overview", links: ["About", "Technology", "Products", "Applications"] },
-    { title: "Resources", links: ["Case studies", "Contact", "Downloads"] },
+    {
+      title: "Overview",
+      links: [
+        { label: "About", href: "/about" },
+        { label: "Technology", href: "/technology" },
+        { label: "Products", href: "/products" },
+        { label: "Applications", href: "/applications" },
+      ],
+    },
+    {
+      title: "Resources",
+      links: [
+        { label: "Case studies", href: "/case-studies" },
+        { label: "Contact", href: "/contact" },
+        { label: "Downloads", href: "#" },
+      ],
+    },
   ],
   legal: ["Privacy Policy", "Terms of Use"],
 } as const;

@@ -99,7 +99,7 @@ function ProductBlock({ product, index, total }: { product: Product; index: numb
           <p className="font-sans text-sm leading-6 font-light tracking-[0.5px] text-white/75 sm:text-base">
             {product.tags.join("  ·  ")}
           </p>
-          <Button href="#">Explore {product.name}</Button>
+          <Button href={product.href ?? "/products"}>Explore {product.name}</Button>
         </div>
       </div>
     </article>
