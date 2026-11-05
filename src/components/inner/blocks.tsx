@@ -3,6 +3,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { MediaFrame } from "@/components/motion/MediaFrame";
 
 /** Standard inner-page section rhythm: 120px vertical on desktop. */
 export const sectionY = "py-16 md:py-24 lg:py-[120px]";
@@ -30,9 +31,7 @@ export function Split({ media, children, textFirst, id, className, padding = sec
           padding,
         )}
       >
-        <div data-reveal className={clsx(textFirst && "lg:order-2")}>
-          {media}
-        </div>
+        <div className={clsx(textFirst && "lg:order-2")}>{media}</div>
         <div className="flex flex-col items-start gap-5">{children}</div>
       </Reveal>
     </section>
@@ -98,9 +97,9 @@ export function Photo({
   className?: string;
 }) {
   return (
-    <div className={clsx("relative overflow-hidden bg-mist", className)} style={{ aspectRatio: ratio }}>
+    <MediaFrame className={clsx("bg-mist", className)} style={{ aspectRatio: ratio }}>
       <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" style={{ objectPosition: position }} />
-    </div>
+    </MediaFrame>
   );
 }
 
@@ -122,22 +121,29 @@ export function VideoPlaceholder({
   className?: string;
 }) {
   return (
-    <div
-      role="img"
-      aria-label={`${label} (video coming soon)`}
-      className={clsx("relative overflow-hidden bg-black", className)}
-      style={{ aspectRatio: ratio }}
-    >
-      <Image src={src} alt="" fill sizes={sizes} className="object-cover" />
-      <div className="absolute inset-0 bg-black/35" />
-      <span className="absolute top-1/2 left-1/2 flex size-[72px] -translate-1/2 items-center justify-center rounded-full bg-white/92 lg:size-[88px]">
-        <svg width="22" height="28" viewBox="0 0 22 28" aria-hidden className="ml-1.5 scale-90 lg:scale-100">
-          <path d="M0 0V28L22 14Z" fill="#191818" />
-        </svg>
-      </span>
-      {showLabel && (
-        <p className="absolute bottom-6 left-6 font-sans text-sm leading-5 tracking-[1px] text-white sm:bottom-8 sm:left-8">{label}</p>
-      )}
+    <div role="img" aria-label={`${label} (video coming soon)`} className={clsx("group", className)}>
+      <MediaFrame
+        className="bg-black"
+        style={{ aspectRatio: ratio }}
+        overlay={
+          <>
+            <div className="absolute inset-0 bg-black/35 transition-colors duration-500 group-hover:bg-black/25" />
+            <span className="absolute top-1/2 left-1/2 flex size-[72px] -translate-1/2 items-center justify-center lg:size-[88px]">
+              <span aria-hidden className="absolute inset-0 animate-[ping_2.6s_cubic-bezier(0,0,0.2,1)_infinite] rounded-full bg-white/25" />
+              <span className="relative flex size-full items-center justify-center rounded-full bg-white/92 transition-transform duration-500 ease-out-expo group-hover:scale-110">
+                <svg width="22" height="28" viewBox="0 0 22 28" aria-hidden className="ml-1.5 scale-90 lg:scale-100">
+                  <path d="M0 0V28L22 14Z" fill="#191818" />
+                </svg>
+              </span>
+            </span>
+            {showLabel && (
+              <p className="absolute bottom-6 left-6 font-sans text-sm leading-5 tracking-[1px] text-white sm:bottom-8 sm:left-8">{label}</p>
+            )}
+          </>
+        }
+      >
+        <Image src={src} alt="" fill sizes={sizes} className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-105" />
+      </MediaFrame>
     </div>
   );
 }
@@ -174,7 +180,7 @@ export function CheckList({ items, className }: { items: readonly string[]; clas
     <ul data-reveal className={clsx("flex flex-col gap-3.5 pt-3", className)}>
       {items.map((item) => (
         <li key={item} className="flex items-start gap-3 font-sans text-base leading-6 font-light md:text-lg">
-          <Image src="/images/icons/icon-check.svg" alt="" width={24} height={24} className="mt-px shrink-0" />
+          <Image data-pop src="/images/icons/icon-check.svg" alt="" width={24} height={24} className="mt-px shrink-0" />
           {item}
         </li>
       ))}
@@ -202,7 +208,7 @@ export function Chip({ children, dark, href }: { children: ReactNode; dark?: boo
 export function KeyPoint({ children }: { children: ReactNode }) {
   return (
     <p data-reveal className="flex w-full gap-4 bg-brand/8 px-6 py-5 font-sans text-base leading-6">
-      <span aria-hidden className="w-[3px] shrink-0 bg-brand" />
+      <span aria-hidden data-line="y" className="w-[3px] shrink-0 bg-brand" />
       <span>{children}</span>
     </p>
   );
@@ -215,9 +221,15 @@ export function Gallery({ items, sizes = "(min-width: 1024px) 432px, (min-width:
       {items.map((it) => (
         <li key={it.caption} data-reveal className="flex flex-col gap-3">
           {it.src ? (
-            <div className="relative aspect-[432/320] overflow-hidden bg-mist">
-              <Image src={it.src} alt={it.caption} fill sizes={sizes} className="object-cover" />
-            </div>
+            <MediaFrame parallax={false} className="group aspect-[432/320] bg-mist">
+              <Image
+                src={it.src}
+                alt={it.caption}
+                fill
+                sizes={sizes}
+                className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-105"
+              />
+            </MediaFrame>
           ) : (
             <Placeholder label="Photo to come" ratio="432/320" />
           )}

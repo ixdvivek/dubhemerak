@@ -52,17 +52,17 @@ export default function BayaweaverPage() {
       />
 
       <section aria-label="Key features" className="bg-[#080e16] text-white">
-        <ul className="container-x grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:py-14">
+        <Reveal as="ul" start="top 92%" className="container-x grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-4 lg:py-14">
           {features.map(([title, body]) => (
-            <li key={title} className="flex items-start gap-4">
-              <Image src="/images/icons/icon-check.svg" alt="" width={24} height={24} className="mt-0.5" />
+            <li key={title} data-reveal className="flex items-start gap-4">
+              <Image data-pop src="/images/icons/icon-check.svg" alt="" width={24} height={24} className="mt-0.5" />
               <div>
                 <p className="font-display text-xl leading-7">{title}</p>
                 <p className="font-sans text-base leading-6 font-light text-white/70">{body}</p>
               </div>
             </li>
           ))}
-        </ul>
+        </Reveal>
       </section>
 
       <Split
@@ -128,7 +128,7 @@ export default function BayaweaverPage() {
           <SectionHeading id="merits-title" eyebrow="Key merits" title={["Why teams choose", "Bayaweaver."]} width={760} />
           <ol className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
             {merits.map((m, i) => (
-              <li key={m} data-reveal className="flex flex-col gap-4 bg-white p-5 sm:gap-6 sm:p-8">
+              <li key={m} data-reveal className="flex flex-col gap-4 bg-white p-5 transition-[translate,box-shadow] duration-500 ease-out-expo hover:-translate-y-1 hover:shadow-[0_16px_32px_rgba(4,34,63,0.08)] sm:gap-6 sm:p-8">
                 <span className="font-display text-[32px] leading-10 font-thin text-brand sm:text-[40px] sm:leading-11">{String(i + 1).padStart(2, "0")}</span>
                 <p className="font-display text-base leading-6 sm:text-xl sm:leading-7">{m}</p>
               </li>
@@ -164,7 +164,7 @@ export default function BayaweaverPage() {
               {models.map(([model, cap]) => (
                 <li
                   key={model}
-                  className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 border-b border-black/10 py-5 md:grid-cols-[31%_22%_1fr_auto] md:py-6"
+                  className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 border-b border-black/10 py-5 transition-colors duration-300 md:-mx-4 md:grid-cols-[31%_22%_1fr_auto] md:px-4 md:py-6 md:hover:bg-[#f4f5f7]"
                 >
                   <h3 className="font-display text-2xl leading-8 font-normal">Model {model}</h3>
                   <p className="col-start-1 font-sans text-base leading-6 font-light md:col-start-auto md:text-lg">N Line</p>
@@ -227,7 +227,7 @@ export default function BayaweaverPage() {
               ["Semi-automatic", "Needs occasional supervision — suited to sites with on-hand facilities staff."],
               ["Fully automatic", "Designed to largely run itself, with the AI system managing each treatment cycle."],
             ].map(([t, b]) => (
-              <li key={t} data-reveal className="flex flex-col gap-3 bg-[#f4f5f7] p-8">
+              <li key={t} data-reveal className="flex flex-col gap-3 bg-[#f4f5f7] p-8 transition-colors duration-500 hover:bg-mist">
                 <h3 className="font-display text-2xl leading-8">{t}</h3>
                 <p className="font-sans text-base leading-6 font-light text-black/75">{b}</p>
               </li>

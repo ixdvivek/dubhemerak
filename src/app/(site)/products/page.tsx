@@ -7,6 +7,7 @@ import { sectionY } from "@/components/inner/blocks";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { MediaFrame } from "@/components/motion/MediaFrame";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -80,7 +81,7 @@ function ProductCard({ card, dark }: { card: Card; dark?: boolean }) {
       data-reveal
       className={clsx("group flex flex-col", dark ? "border border-white/10 bg-white/4" : "bg-[#f4f5f7]")}
     >
-      <div className="relative aspect-[432/380] overflow-hidden">
+      <MediaFrame parallax={false} className="aspect-[432/380]">
         <Image
           src={card.image.src}
           alt={card.image.alt}
@@ -88,13 +89,14 @@ function ProductCard({ card, dark }: { card: Card; dark?: boolean }) {
           sizes="(min-width: 1024px) 432px, (min-width: 640px) 50vw, 100vw"
           className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-105"
         />
-      </div>
+      </MediaFrame>
       <div className="flex flex-1 flex-col gap-3 p-8">
         <Eyebrow>{card.eyebrow}</Eyebrow>
         <h3 className={clsx("font-display text-[32px] leading-10 font-normal", dark && "text-white")}>{card.name}</h3>
         <p className={clsx("font-sans text-base leading-6 font-light", dark ? "text-white/75" : "text-black/75")}>{card.spec}</p>
         {card.meta ? (
-          <div className={clsx("mt-auto flex items-center justify-between gap-4 border-t pt-4", dark ? "border-white/12" : "border-black/10")}>
+          <div className={clsx("relative mt-auto flex items-center justify-between gap-4 pt-4")}>
+            <span aria-hidden data-line className={clsx("absolute inset-x-0 top-0 h-px", dark ? "bg-white/12" : "bg-black/10")} />
             <div>
               <p className="font-sans text-xs leading-4 tracking-[1px] text-white/60 uppercase">{card.meta.label}</p>
               <p className="font-display text-[22px] leading-7 text-white">{card.meta.value}</p>
