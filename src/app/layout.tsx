@@ -5,7 +5,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.dubhemerak.com"),
-  title: "Dubhe Merak — Drinking water & wastewater treatment",
+  title: {
+    default: "Dubhe Merak — Drinking water & wastewater treatment",
+    template: "%s — Dubhe Merak",
+  },
   description:
     "Chemical-free, electricity-free drinking water systems and fully automatic effluent treatment plants for hospitals, hotels and businesses. Since 1993.",
   openGraph: {

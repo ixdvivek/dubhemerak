@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { contact, footer } from "@/lib/content";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -12,7 +13,7 @@ export function Footer() {
       }}
     >
       <Reveal className="container-x flex flex-col gap-12 py-16 md:py-20" stagger={0.06}>
-        <a href="#" data-reveal aria-label="Dubhe Merak — back to top" className="w-fit">
+        <Link href="/" data-reveal aria-label="Dubhe Merak — home" className="w-fit">
           <Image
             src="/images/logo-dubhe-merak.png"
             alt="Dubhe Merak"
@@ -20,7 +21,7 @@ export function Footer() {
             height={172}
             className="h-auto w-[280px] sm:w-[421px]"
           />
-        </a>
+        </Link>
 
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
           <div data-reveal className="flex max-w-[440px] flex-col gap-4">
@@ -38,10 +39,10 @@ export function Footer() {
                 <p className="font-sans font-bold tracking-[1px] text-brand uppercase">{g.title}</p>
                 <ul className="flex flex-col gap-4">
                   {g.links.map((l) => (
-                    <li key={l}>
-                      <a href="#" className="font-sans text-muted transition-colors hover:text-white">
-                        {l}
-                      </a>
+                    <li key={l.label}>
+                      <Link href={l.href} className="font-sans text-muted transition-colors hover:text-white">
+                        {l.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>

@@ -1,6 +1,6 @@
 # Dubhe Merak — website
 
-Homepage build of the locked Figma design (**Home – v3, client comments 07 Oct**), as a Next.js app.
+Next.js build of the Figma designs: the locked homepage (**Home – v3, client comments 07 Oct**) and the eight inner pages (**About, Technology, Products, Product – Bayaweaver, Applications, Case studies, Case study – Hotel Kochi, Contact – v1**).
 
 **Stack:** Next.js 16 (App Router, Turbopack) · TypeScript · Tailwind CSS v4 · GSAP + ScrollTrigger (`@gsap/react`) · Lenis smooth scroll · `next/font/local` · `next/image`
 
@@ -19,9 +19,14 @@ Optional: set `NEXT_PUBLIC_SITE_URL` (e.g. `https://www.dubhemerak.com`) so Open
 ```
 src/
   app/
-    layout.tsx        fonts, metadata, Lenis
-    page.tsx          homepage — composes the sections in order
+    layout.tsx        fonts, metadata (title template), Lenis
     globals.css       Tailwind v4 @theme tokens (colours, fonts, easing), Lenis CSS, container utility
+    (site)/
+      layout.tsx      skip link, Navbar, Footer — shared by every page
+      page.tsx        homepage — composes the sections in order
+      about/ technology/ products/ products/bayaweaver/ applications/
+      case-studies/ case-studies/hotel-kochi/ contact/
+                      inner pages — each page's copy sits at the top of its page.tsx
   lib/
     content.ts        ALL homepage copy, links, product data — edit text here, not in components
     fonts.ts          Kanit (display) + 42dot Sans (body), self-hosted from src/fonts
@@ -31,7 +36,9 @@ src/
     sections/         Hero, Stats, ProductLine, BrandMarquee, AboutLead, CaseStudies,
                       Testimonials, Industries, ContactCta
     motion/           SmoothScroll (Lenis), Reveal (scroll-in stagger), Parallax
-    ui/               Button (pill + icon chip), MaskIcon (recolourable Figma icons), SectionHeading
+    inner/            PageHero, CtaBanner, Split/SplitText, Photo, VideoPlaceholder, CheckList, Placeholder,
+                      Gallery, VideoCards, KeyPoint, CaseStudyGrid (filters), EnquiryForm
+    ui/               Button (pill + icon chip; Link for internal paths), MaskIcon, SectionHeading/Eyebrow, CaseStudyCard
 public/images/        assets exported from Figma (photos as WebP, logos/icons as SVG/PNG)
 ```
 
@@ -67,9 +74,26 @@ All animation is in client components via `useGSAP` and runs only under `prefers
 | Case studies / Industries | Image zoom on hover |
 | Testimonials | Hover/focus swaps the card to the client's portrait with white text (Figma hover state) |
 
+## Inner pages
+
+| Route | Notes |
+|---|---|
+| `/about` | Story, stats, two divisions, leadership (portrait placeholders) |
+| `/technology` | Drinking water + wastewater splits with video placeholders, working cycle |
+| `/products` | Drinking water and wastewater cards; Bayaweaver links to its page, others to `/contact` until their pages exist |
+| `/products/bayaweaver` | Product template — copy the folder for Tusker Gold, Narwhal Steller, Medium, Standard, Commercial |
+| `/applications` | Four application rows with jump links, then the industries grid |
+| `/case-studies` | Filterable grid (client-side), testimonials |
+| `/case-studies/hotel-kochi` | Case study template — problem, solution, installation, outcome, gallery, videos, products |
+| `/contact` | Enquiry form, contact card, Google Maps embed |
+
+Every inner page ends with the compact **CTA banner** (`components/inner/CtaBanner.tsx`); the homepage keeps its larger contact section. The navbar highlights the current section and the page scrolls to the top on client-side navigation.
+
 ## Content notes
 
-- Nav and "Explore / View …" links point to `#` until the inner pages exist.
+- **Enquiry form:** there is no form backend yet — submitting validates the fields and opens the visitor's email app with the enquiry addressed to info@dubhemerak.com. Replace `onSubmit` in `EnquiryForm.tsx` with an API route (e.g. Resend) when ready.
+- **Placeholders** (dashed boxes / play buttons): leadership portraits, the Bayaweaver technical diagram, gallery photos, all videos and the Bayaweaver case study. Swap in real assets as the client supplies them.
+- "Downloads", "Download brochure" (opens an email request for now) and product pages other than Bayaweaver are still to come.
 - Phone, WhatsApp (`wa.me/919847922777`) and email links are live.
 - Copy written for this build (per review): testimonials subtitle, footer headline ("Engineered for tomorrow. Trusted since 1993.").
 - Hero uses a still image; to switch to video later, swap the `<Image>` in `components/sections/Hero.tsx` for a muted, looping `<video>` with the image as `poster`.

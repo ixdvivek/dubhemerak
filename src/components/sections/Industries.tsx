@@ -1,18 +1,26 @@
 import Image from "next/image";
+import clsx from "clsx";
 import { industries } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 
-export function Industries() {
+type IndustriesProps = {
+  title?: [string, string];
+  /** Where "Talk to an expert" goes — the homepage scrolls to its contact section. */
+  actionHref?: string;
+  className?: string;
+};
+
+export function Industries({ title = ["Industries", "we serve."], actionHref = "#contact", className = "bg-white" }: IndustriesProps) {
   return (
-    <section aria-label="Industries we serve" className="bg-white">
+    <section aria-label={title.join(" ")} className={clsx(className)}>
       <Reveal className="container-x flex flex-col gap-12 py-16 md:py-20" stagger={0.06}>
         <SectionHeading
-          title={["Industries", "we serve."]}
+          title={title}
           description="From hospital wards to factory floors — systems sized to the way each site actually uses water."
           action={
-            <Button variant="outline" href="#contact">
+            <Button variant="outline" href={actionHref}>
               Talk to an expert
             </Button>
           }
