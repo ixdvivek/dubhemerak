@@ -33,7 +33,7 @@ export default function TechnologyPage() {
       <Split
         id="drinking-water"
         label="Drinking water technology"
-        media={<VideoPlaceholder src="/images/commercial.webp" label="Gravity filtration explainer" />}
+        media={<VideoPlaceholder src="/images/commercial-2026.webp" label="Gravity filtration explainer" />}
       >
         <SplitText
           eyebrow="Drinking water · Dubhe Richus"

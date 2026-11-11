@@ -205,7 +205,7 @@ export default function BayaweaverPage() {
           <VideoCards
             items={[
               { title: "Product overview", body: "How Bayaweaver's AI system manages treatment automatically.", src: "/images/bayaweaver.webp" },
-              { title: "Installation walkthrough", body: "Plug-and-play install, from connection to first cycle.", src: "/images/tusker-gold.webp" },
+              { title: "Installation walkthrough", body: "Plug-and-play install, from connection to first cycle.", src: "/images/tusker-gold-2026.webp" },
             ]}
           />
         </Reveal>

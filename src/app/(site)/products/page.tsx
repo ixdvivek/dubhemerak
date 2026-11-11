@@ -30,21 +30,21 @@ const drinking: Card[] = [
     name: "Medium",
     spec: "1250 Ltr/day · up to 1500 sq.ft single storied house",
     href: "/contact",
-    image: { src: "/images/medium.webp", alt: "Dubhe Richus Medium filter on a home's garden wall" },
+    image: { src: "/images/medium-2026.webp", alt: "Twin-cylinder Dubhe Richus Medium filter against a sunlit wall" },
   },
   {
     eyebrow: "Drinking water",
     name: "Standard",
     spec: "2500 Ltr/day · up to 3500 sq.ft double storied house",
     href: "/contact",
-    image: { src: "/images/standard.webp", alt: "Dubhe Richus Standard filter against a sunlit wall" },
+    image: { src: "/images/standard-2026.webp", alt: "Dubhe Richus Standard twin-cylinder filter in a black frame" },
   },
   {
     eyebrow: "Drinking water",
     name: "Commercial",
     spec: "Customized design · apartments, hotels, hospitals",
     href: "/contact",
-    image: { src: "/images/commercial.webp", alt: "Four-cylinder Dubhe Richus Commercial system on a utility wall" },
+    image: { src: "/images/commercial-2026.webp", alt: "Four-cylinder Dubhe Richus Commercial system against a sunlit wall" },
   },
 ];
 
@@ -62,7 +62,7 @@ const wastewater: Card[] = [
     name: "Tusker Gold",
     spec: "Heavy-duty sewage treatment · fully automatic AI system",
     href: "/contact",
-    image: { src: "/images/tusker-gold.webp", alt: "Tusker Gold sewage treatment plant at a misty lakeside" },
+    image: { src: "/images/tusker-gold-2026.webp", alt: "Tusker Gold membrane bio reactor unit standing in still water" },
     meta: { label: "Models", value: "0724 – 5024" },
   },
   {
@@ -121,7 +121,7 @@ export default function ProductsPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/standard.webp", alt: "", position: "30% 50%" }}
+        image={{ src: "/images/standard-2026.webp", alt: "", position: "68% 50%" }}
         crumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
         title="The full lineup."
         description="Gravity-powered drinking water systems and fully automatic wastewater plants — each sized to the site it serves."

@@ -35,14 +35,14 @@ const installed = [
     name: "Tusker Gold",
     body: "Compact sewage treatment plant with quiet, odour-free operation and MBR technology.",
     href: "/products#wastewater",
-    image: { src: "/images/tusker-gold.webp", alt: "Tusker Gold sewage treatment plant" },
+    image: { src: "/images/tusker-gold-2026.webp", alt: "Tusker Gold sewage treatment plant" },
   },
   {
     eyebrow: "Drinking water",
     name: "Standard",
     body: "Our most-installed model — steady flow across five taps for a full household.",
     href: "/products#drinking-water",
-    image: { src: "/images/standard.webp", alt: "Dubhe Richus Standard filter" },
+    image: { src: "/images/standard-2026.webp", alt: "Dubhe Richus Standard filter" },
   },
 ];
 
@@ -87,7 +87,7 @@ export default function HotelKochiCaseStudy() {
       <Split
         label="Proposed solution"
         className="bg-mist"
-        media={<Photo src="/images/tusker-gold.webp" alt="Render of the proposed Tusker Gold placement" ratio="680/520" />}
+        media={<Photo src="/images/tusker-gold-2026.webp" alt="Render of the proposed Tusker Gold placement" ratio="680/520" />}
       >
         <SplitText
           display
