@@ -2,6 +2,7 @@ import { getImageProps } from "next/image";
 import { contact } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
+import { Parallax } from "@/components/motion/Parallax";
 
 type CtaBannerProps = {
   eyebrow?: string;
@@ -30,29 +31,35 @@ export function CtaBanner({
     <section aria-labelledby="cta-banner-title" className="bg-white">
       <Reveal className="container-x py-16 md:py-24 lg:py-[120px]">
         <div
-          data-reveal
           className="relative isolate overflow-hidden rounded-3xl bg-[#11161d] px-6 py-12 text-white sm:px-12 sm:py-16 lg:p-[88px]"
         >
-          <picture>
-            <source media="(min-width: 1024px)" srcSet={wide} />
-            <source srcSet={tall} />
-            <img {...img} alt="" loading="lazy" className="absolute inset-0 -z-10 size-full object-cover opacity-40" />
-          </picture>
+          <Parallax amount={12} className="absolute inset-x-0 -inset-y-[10%] -z-10">
+            <picture>
+              <source media="(min-width: 1024px)" srcSet={wide} />
+              <source srcSet={tall} />
+              <img {...img} alt="" loading="lazy" className="absolute inset-0 size-full object-cover opacity-40" />
+            </picture>
+          </Parallax>
           <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-r from-[#11161d]/60 via-[#11161d]/10 to-transparent" />
 
           <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
             <div className="flex max-w-[720px] flex-col gap-5">
-              <p className="font-sans text-base leading-6 font-semibold tracking-[1px] text-white/60">{eyebrow}</p>
+              <p data-reveal className="font-sans text-base leading-6 font-semibold tracking-[1px] text-white/60">
+                {eyebrow}
+              </p>
               <h2
+                data-reveal
                 id="cta-banner-title"
                 className="font-display text-[clamp(2.25rem,1.6rem+1.8vw,3.25rem)] leading-[1.12] font-medium tracking-[-0.5px]"
               >
                 {title}
               </h2>
-              <p className="max-w-[640px] font-sans text-base leading-7 font-light sm:text-lg">{description}</p>
+              <p data-reveal className="max-w-[640px] font-sans text-base leading-7 font-light sm:text-lg">
+                {description}
+              </p>
             </div>
 
-            <div className="flex flex-col items-start gap-4 lg:items-end">
+            <div data-reveal className="flex flex-col items-start gap-4 lg:items-end">
               <div className="flex flex-wrap gap-3">
                 <Button variant="outline-light" href={contact.whatsappHref} target="_blank" rel="noopener noreferrer">
                   WhatsApp us

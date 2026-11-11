@@ -6,6 +6,8 @@ import { Gallery, KeyPoint, Photo, Split, SplitText, VideoCards, VideoPlaceholde
 import { Button } from "@/components/ui/Button";
 import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { CountUp } from "@/components/motion/CountUp";
+import { MediaFrame } from "@/components/motion/MediaFrame";
 
 export const metadata: Metadata = {
   title: "Hotel, Kochi — case study",
@@ -33,14 +35,14 @@ const installed = [
     name: "Tusker Gold",
     body: "Compact sewage treatment plant with quiet, odour-free operation and MBR technology.",
     href: "/products#wastewater",
-    image: { src: "/images/tusker-gold.webp", alt: "Tusker Gold sewage treatment plant" },
+    image: { src: "/images/tusker-gold-2026.webp", alt: "Tusker Gold sewage treatment plant" },
   },
   {
     eyebrow: "Drinking water",
     name: "Standard",
     body: "Our most-installed model — steady flow across five taps for a full household.",
     href: "/products#drinking-water",
-    image: { src: "/images/standard.webp", alt: "Dubhe Richus Standard filter" },
+    image: { src: "/images/standard-2026.webp", alt: "Dubhe Richus Standard filter" },
   },
 ];
 
@@ -55,16 +57,16 @@ export default function HotelKochiCaseStudy() {
       />
 
       <section aria-label="Project summary" className="bg-white">
-        <dl className="container-x">
+        <Reveal as="dl" start="top 92%" className="container-x">
           <div className="grid grid-cols-2 gap-y-8 border-y border-black/10 py-10 lg:grid-cols-4 lg:py-14">
             {facts.map(([label, value], i) => (
-              <div key={label} className={i % 2 ? "border-l border-black/10 pl-6 lg:pl-8" : i ? "lg:border-l lg:border-black/10 lg:pl-8" : ""}>
+              <div key={label} data-reveal className={i % 2 ? "border-l border-black/10 pl-6 lg:pl-8" : i ? "lg:border-l lg:border-black/10 lg:pl-8" : ""}>
                 <dt className="font-sans text-xs leading-4 font-semibold tracking-[1.5px] text-brand uppercase">{label}</dt>
                 <dd className="mt-2 pr-4 font-display text-lg leading-7 sm:text-[22px] sm:leading-[30px]">{value}</dd>
               </div>
             ))}
           </div>
-        </dl>
+        </Reveal>
       </section>
 
       <Split
@@ -85,7 +87,7 @@ export default function HotelKochiCaseStudy() {
       <Split
         label="Proposed solution"
         className="bg-mist"
-        media={<Photo src="/images/tusker-gold.webp" alt="Render of the proposed Tusker Gold placement" ratio="680/520" />}
+        media={<Photo src="/images/tusker-gold-2026.webp" alt="Render of the proposed Tusker Gold placement" ratio="680/520" />}
       >
         <SplitText
           display
@@ -124,9 +126,12 @@ export default function HotelKochiCaseStudy() {
           />
           <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4 lg:gap-8">
             {outcomes.map(([value, label]) => (
-              <div key={label} data-reveal className="flex flex-col-reverse gap-3 border-t border-white/20 pt-6">
+              <div key={label} data-reveal className="relative flex flex-col-reverse gap-3 pt-6">
+                <span aria-hidden data-line className="absolute inset-x-0 top-0 h-px bg-white/20" />
                 <dt className="font-sans text-base leading-6 font-light text-white/70">{label}</dt>
-                <dd className="font-display text-[44px] leading-[52px] font-thin sm:text-[64px] sm:leading-[72px]">{value}</dd>
+                <dd className="font-display text-[44px] leading-[52px] font-thin sm:text-[64px] sm:leading-[72px]">
+                  <CountUp value={value} />
+                </dd>
               </div>
             ))}
           </dl>
@@ -184,10 +189,16 @@ export default function HotelKochiCaseStudy() {
           />
           <ul className="grid gap-8 lg:grid-cols-2">
             {installed.map((p) => (
-              <li key={p.name} data-reveal className="flex flex-col bg-white sm:flex-row">
-                <div className="relative aspect-[4/3] shrink-0 sm:aspect-square sm:w-[42%] lg:w-[280px]">
-                  <Image src={p.image.src} alt={p.image.alt} fill sizes="(min-width: 640px) 280px, 100vw" className="object-cover" />
-                </div>
+              <li key={p.name} data-reveal className="group flex flex-col bg-white sm:flex-row">
+                <MediaFrame parallax={false} className="aspect-[4/3] shrink-0 sm:aspect-square sm:w-[42%] lg:w-[280px]">
+                  <Image
+                    src={p.image.src}
+                    alt={p.image.alt}
+                    fill
+                    sizes="(min-width: 640px) 280px, 100vw"
+                    className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-105"
+                  />
+                </MediaFrame>
                 <div className="flex flex-col items-start justify-center gap-3 p-8">
                   <Eyebrow>{p.eyebrow}</Eyebrow>
                   <h3 className="font-display text-[32px] leading-10">{p.name}</h3>

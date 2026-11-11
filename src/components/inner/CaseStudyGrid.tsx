@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import clsx from "clsx";
+import { gsap, useGSAP, MOTION_OK } from "@/lib/gsap";
 import { CaseStudyCard, type CaseStudyCardData } from "@/components/ui/CaseStudyCard";
 
 export type ListedCaseStudy = CaseStudyCardData & { category: string; products: readonly string[] };
@@ -10,6 +11,22 @@ export type ListedCaseStudy = CaseStudyCardData & { category: string; products: 
 export function CaseStudyGrid({ items, filters }: { items: readonly ListedCaseStudy[]; filters: readonly string[] }) {
   const [active, setActive] = useState("All");
   const shown = active === "All" ? items : items.filter((i) => i.category === active);
+  const listRef = useRef<HTMLDivElement>(null);
+  const firstRun = useRef(true);
+
+  // Re-stagger the cards whenever the filter changes (the first paint is handled by the page's Reveal).
+  useGSAP(
+    () => {
+      if (firstRun.current) {
+        firstRun.current = false;
+        return;
+      }
+      gsap.matchMedia().add(MOTION_OK, () => {
+        gsap.from("[data-filter-item]", { y: 28, autoAlpha: 0, stagger: 0.07, duration: 0.9, ease: "expo.out" });
+      });
+    },
+    { scope: listRef, dependencies: [active] },
+  );
 
   return (
     <div className="flex flex-col gap-12">
@@ -35,27 +52,32 @@ export function CaseStudyGrid({ items, filters }: { items: readonly ListedCaseSt
         </p>
       </div>
 
-      {shown.length ? (
-        <ul className="grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
-          {shown.map((cs) => (
-            <li key={cs.href + cs.title} className="flex flex-col gap-4">
-              <CaseStudyCard cs={cs} />
-              <p className="flex flex-wrap items-center gap-2 font-sans text-sm leading-5">
-                <span className="text-black/55">Installed:</span>
-                {cs.products.map((p) => (
-                  <span key={p} className="rounded-2xl bg-brand/10 px-3 py-1 font-medium text-brand">
-                    {p}
-                  </span>
-                ))}
-              </p>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p className="bg-[#f4f5f7] px-8 py-12 text-center font-display text-2xl leading-8 font-light">
-          No {active.toLowerCase()} case studies yet — they&apos;re being documented now.
-        </p>
-      )}
+      <div ref={listRef}>
+        {shown.length ? (
+          <ul className="grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+            {shown.map((cs) => (
+              <li key={cs.href + cs.title} data-filter-item className="flex flex-col gap-4">
+                <CaseStudyCard cs={cs} />
+                <p className="flex flex-wrap items-center gap-2 font-sans text-sm leading-5">
+                  <span className="text-black/55">Installed:</span>
+                  {cs.products.map((p) => (
+                    <span key={p} className="rounded-2xl bg-brand/10 px-3 py-1 font-medium text-brand">
+                      {p}
+                    </span>
+                  ))}
+                </p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p
+            data-filter-item
+            className="bg-[#f4f5f7] px-8 py-12 text-center font-display text-2xl leading-8 font-light"
+          >
+            No {active.toLowerCase()} case studies yet — they&apos;re being documented now.
+          </p>
+        )}
+      </div>
     </div>
   );
 }

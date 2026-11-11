@@ -5,6 +5,7 @@ import { CheckList, Split, SplitText, VideoPlaceholder, sectionY } from "@/compo
 import { Button } from "@/components/ui/Button";
 import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { CountUp } from "@/components/motion/CountUp";
 
 export const metadata: Metadata = {
   title: "Technology",
@@ -32,7 +33,7 @@ export default function TechnologyPage() {
       <Split
         id="drinking-water"
         label="Drinking water technology"
-        media={<VideoPlaceholder src="/images/commercial.webp" label="Gravity filtration explainer" />}
+        media={<VideoPlaceholder src="/images/commercial-2026.webp" label="Gravity filtration explainer" />}
       >
         <SplitText
           eyebrow="Drinking water · Dubhe Richus"
@@ -87,10 +88,10 @@ export default function TechnologyPage() {
           />
           <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {cycle.map((c) => (
-              <li key={c.step} data-reveal className="flex flex-col gap-3 border border-white/12 bg-white/4 p-8">
+              <li key={c.step} data-reveal className="flex flex-col gap-3 border border-white/12 bg-white/4 p-8 transition-colors duration-500 hover:border-brand/60 hover:bg-white/6">
                 <Eyebrow>{c.step}</Eyebrow>
-                <p className="font-display text-[64px] leading-[72px] font-thin">{c.value}</p>
-                <span aria-hidden className="h-px w-full bg-white/15" />
+                <CountUp value={c.value} className="font-display text-[64px] leading-[72px] font-thin" />
+                <span aria-hidden data-line className="h-px w-full bg-white/15" />
                 <h3 className="font-display text-xl leading-7 font-normal">{c.title}</h3>
                 <p className="font-sans text-base leading-6 font-light text-white/70">{c.body}</p>
               </li>

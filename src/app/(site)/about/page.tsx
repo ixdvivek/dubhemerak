@@ -7,6 +7,7 @@ import { Chip, Photo, Placeholder, Split, SplitText, sectionY } from "@/componen
 import { Button } from "@/components/ui/Button";
 import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
+import { MediaFrame } from "@/components/motion/MediaFrame";
 
 export const metadata: Metadata = {
   title: "About",
@@ -21,7 +22,7 @@ const divisions = [
     body: "Gravity-powered, chemical-free filtration for homes, apartments, hotels and hospitals. No electricity, minimal maintenance, proven over 33 years.",
     products: ["Medium", "Standard", "Commercial"],
     cta: { label: "Explore drinking water", href: "/products#drinking-water" },
-    image: { src: "/images/medium.webp", alt: "Dubhe Richus Medium filter mounted on a home's garden wall" },
+    image: { src: "/images/medium-2026.webp", alt: "Twin-cylinder Dubhe Richus Medium filter against a sunlit wall" },
   },
   {
     eyebrow: "Wastewater & effluent",
@@ -72,10 +73,16 @@ export default function AboutPage() {
           />
           <ul className="grid gap-8 md:grid-cols-2">
             {divisions.map((d) => (
-              <li key={d.name} data-reveal className="flex flex-col bg-white">
-                <div className="relative aspect-[664/380] overflow-hidden">
-                  <Image src={d.image.src} alt={d.image.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-                </div>
+              <li key={d.name} data-reveal className="group flex flex-col bg-white">
+                <MediaFrame parallax={false} className="aspect-[664/380]">
+                  <Image
+                    src={d.image.src}
+                    alt={d.image.alt}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-105"
+                  />
+                </MediaFrame>
                 <div className="flex flex-1 flex-col items-start gap-4 p-6 sm:p-10">
                   <Eyebrow>{d.eyebrow}</Eyebrow>
                   <h3 className="font-display text-[32px] leading-10 font-normal">{d.name}</h3>

@@ -97,4 +97,4 @@ Every inner page ends with the compact **CTA banner** (`components/inner/CtaBann
 - Phone, WhatsApp (`wa.me/919847922777`) and email links are live.
 - Copy written for this build (per review): testimonials subtitle, footer headline ("Engineered for tomorrow. Trusted since 1993.").
 - Hero uses a still image; to switch to video later, swap the `<Image>` in `components/sections/Hero.tsx` for a muted, looping `<video>` with the image as `poster`.
-- The Medium and first case-study photos are pre-cropped to the Figma framing; Figma's source images for those are low resolution, so a higher-res original is worth requesting from the client.
+- Product banner photos for Tusker Gold, Medium, Standard and Commercial were replaced with the client's new renders (1672×941). Standard now sits left-aligned like the others, since its photo places the unit on the right. The first case-study photo is still a low-res crop — worth requesting a higher-res original.

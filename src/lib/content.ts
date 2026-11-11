@@ -61,8 +61,6 @@ export type ProductLine = {
 
 const shade =
   "linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%), linear-gradient(90deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.6) 42%, rgba(0,0,0,0) 72%)";
-const shadeRight =
-  "linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6) 100%), linear-gradient(90deg, rgba(0,0,0,0) 35.83%, rgba(0,0,0,0.6) 62.57%, rgba(0,0,0,0.88) 100%)";
 
 const richusLogo = { src: "/images/logo-dubhe-richus.png", width: 291, height: 28, chip: true };
 
@@ -92,7 +90,7 @@ export const productLines: ProductLine[] = [
         description:
           "A compact sewage treatment plant with quiet, odour-free operation, seamless mobility and advanced MBR technology.",
         tags: ["Fully automatic AI system", "Seamless mobility", "Heavy-duty treatment"],
-        image: { src: "/images/tusker-gold.webp", alt: "Tusker Gold sewage treatment plant beside an elephant at a misty lakeside", mobilePosition: "62% 50%" },
+        image: { src: "/images/tusker-gold-2026.webp", alt: "Tusker Gold 1724 membrane bio reactor unit standing in still water under a spotlight", mobilePosition: "66% 50%" },
         gradient: "linear-gradient(90deg, rgba(0,0,0,0.88) 3.19%, rgba(0,0,0,0) 65.84%)",
       },
       {
@@ -122,7 +120,7 @@ export const productLines: ProductLine[] = [
         logo: richusLogo,
         description: "Twin-cylinder gravity filtration for single-storied homes. No electricity, no chemicals.",
         tags: ["1250 Ltr/day", "up to 1500 sq.ft single storied house"],
-        image: { src: "/images/medium.webp", alt: "Dubhe Richus Medium filter mounted on a home's garden wall", mobilePosition: "74% 50%" },
+        image: { src: "/images/medium-2026.webp", alt: "Twin-cylinder Dubhe Richus Medium filter against a sunlit garden wall", mobilePosition: "68% 50%" },
         gradient: shade,
       },
       {
@@ -132,9 +130,9 @@ export const productLines: ProductLine[] = [
         logo: richusLogo,
         description: "Our most-installed model - steady flow across five taps for a full household.",
         tags: ["2500 Ltr/day", "up to 3500 sq.ft double storied house"],
-        image: { src: "/images/standard.webp", alt: "Dubhe Richus Standard filter installed against a sunlit wall", mobilePosition: "24% 50%" },
-        align: "right",
-        gradient: shadeRight,
+        image: { src: "/images/standard-2026.webp", alt: "Dubhe Richus Standard twin-cylinder filter in a black frame against a sunlit wall", mobilePosition: "68% 50%" },
+        // Text sits left: the new photo places the unit on the right.
+        gradient: shade,
       },
       {
         slug: "commercial",
@@ -143,7 +141,7 @@ export const productLines: ProductLine[] = [
         logo: richusLogo,
         description: "Super Jet Technology sized to the property, built to collect treated water in bulk.",
         tags: ["Customized design", "apartments, hotels, hospitals"],
-        image: { src: "/images/commercial.webp", alt: "Four-cylinder Dubhe Richus Commercial system on a utility wall", mobilePosition: "68% 50%" },
+        image: { src: "/images/commercial-2026.webp", alt: "Four-cylinder Dubhe Richus Commercial system against a sunlit wall", mobilePosition: "65% 50%" },
         gradient: shade,
       },
     ],

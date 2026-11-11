@@ -38,7 +38,7 @@ type ButtonProps = {
  */
 export function Button({ variant = "light", href, icon = icons.arrow, bareIcon, className, children, ...rest }: ButtonProps) {
   const classes = clsx(
-    "group inline-flex items-center justify-center gap-2 rounded-3xl py-3 pr-3 pl-5 font-sans text-base leading-6 font-bold whitespace-nowrap transition-colors duration-300 ease-out-expo",
+    "group inline-flex items-center justify-center gap-2 rounded-3xl py-3 pr-3 pl-5 font-sans text-base leading-6 font-bold whitespace-nowrap transition-[color,background-color,border-color,scale] duration-300 ease-out-expo active:scale-[0.97]",
     surface[variant],
     className,
   );
