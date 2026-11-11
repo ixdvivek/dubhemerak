@@ -23,7 +23,7 @@ const divisions = [
     body: "Gravity-powered, chemical-free filtration for homes, apartments, hotels and hospitals. No electricity, minimal maintenance, proven over 33 years.",
     products: ["Medium", "Standard", "Commercial"],
     cta: { label: "Explore drinking water", href: "/products#drinking-water" },
-    image: { src: "/images/medium-2026.webp", alt: "Twin-cylinder Dubhe Richus Medium filter against a sunlit wall" },
+    image: { src: "/images/richus-medium.webp", alt: "Dubhe Richus Medium twin-cylinder filter in a black frame" },
   },
   {
     eyebrow: "Wastewater & effluent",

@@ -380,7 +380,7 @@ export const products: readonly ProductDetail[] = [
     metaDescription:
       "Dubhe Richus Medium — a twin-cylinder gravity water filter for single-storied homes up to 1500 sq.ft. 1250 litres a day, no electricity, no chemicals.",
     hero: {
-      image: { src: "/images/medium-2026.webp", alt: "", position: "68% 50%" },
+      image: { src: "/images/richus-medium.webp", alt: "", position: "68% 50%" },
       description: "Twin-cylinder gravity filtration for single-storied homes. No electricity, no chemicals — just clean water at every tap.",
     },
     features: richusFeatures,
@@ -398,7 +398,7 @@ export const products: readonly ProductDetail[] = [
       ],
       image: { src: "/images/products/richus-design.webp", alt: "Twin-cylinder Dubhe Richus unit", ratio: "680/600", position: "50% 40%" },
     },
-    highlight: { ...richusHighlight, video: { src: "/images/medium-2026.webp", label: "How gravity filtration works" } },
+    highlight: { ...richusHighlight, video: { src: "/images/richus-medium.webp", label: "How gravity filtration works" } },
     specs: [
       ["Quantity", "1250 Ltr per day"],
       ["Suitable for", "Up to 1500 sq.ft single storied house"],
@@ -411,7 +411,7 @@ export const products: readonly ProductDetail[] = [
     ],
     cycle: true,
     gallery: [
-      { caption: "Medium against a garden wall", src: "/images/medium-2026.webp" },
+      { caption: "Medium in its black frame", src: "/images/richus-medium.webp" },
       { caption: "Twin cylinders", src: "/images/products/richus-design.webp" },
       { caption: "Cylinder close-up", src: "/images/products/richus-closeup.webp" },
       { caption: "Outlet and tap connection" },
@@ -419,7 +419,7 @@ export const products: readonly ProductDetail[] = [
       { caption: "Backwash valve detail" },
     ],
     videos: [
-      { title: "Product overview", body: "How Medium filters water without electricity or chemicals.", src: "/images/medium-2026.webp" },
+      { title: "Product overview", body: "How Medium filters water without electricity or chemicals.", src: "/images/richus-medium.webp" },
       { title: "Backwash walkthrough", body: "How to perform the manual backwash — it takes a few minutes.", src: "/images/products/richus-closeup.webp" },
     ],
     maintenance: richusMaintenance,
@@ -432,7 +432,7 @@ export const products: readonly ProductDetail[] = [
     metaDescription:
       "Dubhe Richus Standard — our most-installed gravity water filter: 2500 litres a day for double-storied homes up to 3500 sq.ft, no electricity, no chemicals.",
     hero: {
-      image: { src: "/images/standard-2026.webp", alt: "", position: "68% 50%" },
+      image: { src: "/images/richus-standard.webp", alt: "", position: "68% 50%" },
       description: "Our most-installed model — steady flow across five taps for a full household, with no electricity and no chemicals.",
     },
     features: richusFeatures,
@@ -450,7 +450,7 @@ export const products: readonly ProductDetail[] = [
       ],
       image: { src: "/images/products/richus-closeup.webp", alt: "Close-up of a Dubhe Richus stainless steel cylinder", ratio: "680/600", position: "50% 30%" },
     },
-    highlight: { ...richusHighlight, video: { src: "/images/standard-2026.webp", label: "How gravity filtration works" } },
+    highlight: { ...richusHighlight, video: { src: "/images/richus-standard.webp", label: "How gravity filtration works" } },
     specs: [
       ["Quantity", "2500 Ltr per day"],
       ["Suitable for", "Up to 3500 sq.ft double storied house"],
@@ -463,7 +463,7 @@ export const products: readonly ProductDetail[] = [
     ],
     cycle: true,
     gallery: [
-      { caption: "Standard in its black frame", src: "/images/standard-2026.webp" },
+      { caption: "Standard against a garden wall", src: "/images/richus-standard.webp" },
       { caption: "Cylinder close-up", src: "/images/products/richus-closeup.webp" },
       { caption: "Twin cylinders", src: "/images/products/richus-design.webp" },
       { caption: "Installed on a guest floor" },
@@ -471,7 +471,7 @@ export const products: readonly ProductDetail[] = [
       { caption: "Backwash in progress" },
     ],
     videos: [
-      { title: "Product overview", body: "How Standard keeps five taps flowing without electricity or chemicals.", src: "/images/standard-2026.webp" },
+      { title: "Product overview", body: "How Standard keeps five taps flowing without electricity or chemicals.", src: "/images/richus-standard.webp" },
       { title: "Backwash walkthrough", body: "How to perform the manual backwash — it takes a few minutes.", src: "/images/products/richus-closeup.webp" },
     ],
     maintenance: richusMaintenance,

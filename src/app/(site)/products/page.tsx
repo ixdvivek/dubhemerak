@@ -30,21 +30,21 @@ const drinking: Card[] = [
     name: "Medium",
     spec: "1250 Ltr/day · up to 1500 sq.ft single storied house",
     href: "/products/medium",
-    image: { src: "/images/medium-2026.webp", alt: "Twin-cylinder Dubhe Richus Medium filter against a sunlit wall" },
+    image: { src: "/images/products/thumb-medium.webp", alt: "Dubhe Richus Medium twin-cylinder filter in a black frame" },
   },
   {
     eyebrow: "Drinking water",
     name: "Standard",
     spec: "2500 Ltr/day · up to 3500 sq.ft double storied house",
     href: "/products/standard",
-    image: { src: "/images/standard-2026.webp", alt: "Dubhe Richus Standard twin-cylinder filter in a black frame" },
+    image: { src: "/images/products/thumb-standard.webp", alt: "Twin-cylinder Dubhe Richus Standard filter against a sunlit wall" },
   },
   {
     eyebrow: "Drinking water",
     name: "Commercial",
     spec: "Customized design · apartments, hotels, hospitals",
     href: "/products/commercial",
-    image: { src: "/images/commercial-2026.webp", alt: "Four-cylinder Dubhe Richus Commercial system against a sunlit wall" },
+    image: { src: "/images/products/thumb-commercial.webp", alt: "Four-cylinder Dubhe Richus Commercial system against a sunlit wall" },
   },
 ];
 
@@ -54,7 +54,7 @@ const wastewater: Card[] = [
     name: "Bayaweaver",
     spec: "Chemical free · maintenance free · zero liquid discharge",
     href: "/products/bayaweaver",
-    image: { src: "/images/bayaweaver.webp", alt: "Bayaweaver treatment unit in a sunlit apartment interior" },
+    image: { src: "/images/products/thumb-bayaweaver.webp", alt: "Bayaweaver 0724 unit with its electric connector against a sunlit wall" },
     meta: { label: "Models", value: "0724 – 5024" },
   },
   {
@@ -62,7 +62,7 @@ const wastewater: Card[] = [
     name: "Tusker Gold",
     spec: "Heavy-duty sewage treatment · fully automatic AI system",
     href: "/products/tusker-gold",
-    image: { src: "/images/tusker-gold-2026.webp", alt: "Tusker Gold membrane bio reactor unit standing in still water" },
+    image: { src: "/images/products/thumb-tusker-gold.webp", alt: "Tusker Gold membrane bio reactor unit standing in still water" },
     meta: { label: "Model", value: "1724" },
   },
   {
@@ -70,7 +70,7 @@ const wastewater: Card[] = [
     name: "Narwhal Steller",
     spec: "Effluent treatment plant · MBR technology",
     href: "/products/narwhal-steller",
-    image: { src: "/images/narwhal-steller-bg.webp", alt: "Narwhal swimming through deep blue water" },
+    image: { src: "/images/products/thumb-narwhal-steller.webp", alt: "Narwhal Steller treatment plant on still water under a blue sky" },
     meta: { label: "Model", value: "2524" },
   },
 ];
@@ -121,7 +121,7 @@ export default function ProductsPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/standard-2026.webp", alt: "", position: "68% 50%" }}
+        image={{ src: "/images/richus-standard.webp", alt: "", position: "68% 50%" }}
         crumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
         title="The full lineup."
         description="Gravity-powered drinking water systems and fully automatic wastewater plants — each sized to the site it serves."
