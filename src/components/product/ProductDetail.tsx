@@ -373,14 +373,13 @@ export function ProductDetail({ p }: { p: Product }) {
                       current && "outline-2 outline-brand",
                     )}
                   >
-                    <MediaFrame parallax={false} className="aspect-[16/10]">
+                    <MediaFrame parallax={false} className="aspect-[432/380]">
                       <Image
-                        src={s.hero.image.src}
+                        src={`/images/products/thumb-${s.slug}.webp`}
                         alt=""
                         fill
-                        sizes="(min-width: 768px) 33vw, 100vw"
+                        sizes="(min-width: 768px) 432px, 100vw"
                         className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-105"
-                        style={{ objectPosition: s.hero.image.position }}
                       />
                     </MediaFrame>
                     <div className="flex flex-1 flex-col gap-2 p-6">

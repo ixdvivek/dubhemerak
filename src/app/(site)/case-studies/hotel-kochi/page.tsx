@@ -42,7 +42,7 @@ const installed = [
     name: "Standard",
     body: "Our most-installed model — steady flow across five taps for a full household.",
     href: "/products/standard",
-    image: { src: "/images/standard-2026.webp", alt: "Dubhe Richus Standard filter" },
+    image: { src: "/images/richus-standard.webp", alt: "Dubhe Richus Standard filter" },
   },
 ];
 
