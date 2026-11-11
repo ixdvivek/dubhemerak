@@ -34,14 +34,14 @@ const installed = [
     eyebrow: "Wastewater",
     name: "Tusker Gold",
     body: "Compact sewage treatment plant with quiet, odour-free operation and MBR technology.",
-    href: "/products#wastewater",
+    href: "/products/tusker-gold",
     image: { src: "/images/tusker-gold-2026.webp", alt: "Tusker Gold sewage treatment plant" },
   },
   {
     eyebrow: "Drinking water",
     name: "Standard",
     body: "Our most-installed model — steady flow across five taps for a full household.",
-    href: "/products#drinking-water",
+    href: "/products/standard",
     image: { src: "/images/standard-2026.webp", alt: "Dubhe Richus Standard filter" },
   },
 ];

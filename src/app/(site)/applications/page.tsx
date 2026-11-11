@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { productHref } from "@/lib/products";
 import { PageHero } from "@/components/inner/PageHero";
 import { CtaBanner } from "@/components/inner/CtaBanner";
 import { Chip, Photo, Split } from "@/components/inner/blocks";
@@ -102,7 +103,9 @@ export default function ApplicationsPage() {
             <p className="font-sans text-xs leading-4 font-semibold tracking-[1.5px] text-black/55 uppercase">Typical systems</p>
             <div className="flex flex-wrap gap-2">
               {a.systems.map((s) => (
-                <Chip key={s}>{s}</Chip>
+                <Chip key={s} href={productHref(s)}>
+                  {s}
+                </Chip>
               ))}
             </div>
           </div>

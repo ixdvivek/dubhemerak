@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { productHref } from "@/lib/products";
 import Image from "next/image";
 import { Stats } from "@/components/sections/Stats";
 import { PageHero } from "@/components/inner/PageHero";
@@ -89,7 +90,9 @@ export default function AboutPage() {
                   <p className="font-sans text-base leading-6 font-light md:text-lg">{d.body}</p>
                   <div className="flex flex-wrap gap-2">
                     {d.products.map((p) => (
-                      <Chip key={p}>{p}</Chip>
+                      <Chip key={p} href={productHref(p)}>
+                        {p}
+                      </Chip>
                     ))}
                   </div>
                   <Button variant="outline" href={d.cta.href} className="mt-auto translate-y-2">

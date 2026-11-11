@@ -85,6 +85,7 @@ export const productLines: ProductLine[] = [
       },
       {
         slug: "tusker-gold",
+        href: "/products/tusker-gold",
         name: "Tusker Gold",
         logo: { src: "/images/logo-tusker-gold.svg", width: 290, height: 52 },
         description:
@@ -95,6 +96,7 @@ export const productLines: ProductLine[] = [
       },
       {
         slug: "narwhal-steller",
+        href: "/products/narwhal-steller",
         name: "Narwhal Steller",
         logo: { src: "/images/logo-narwhal-steller.svg", width: 328, height: 52 },
         description:
@@ -115,6 +117,7 @@ export const productLines: ProductLine[] = [
     products: [
       {
         slug: "medium",
+        href: "/products/medium",
         name: "Medium",
         showName: true,
         logo: richusLogo,
@@ -125,6 +128,7 @@ export const productLines: ProductLine[] = [
       },
       {
         slug: "standard",
+        href: "/products/standard",
         name: "Standard",
         showName: true,
         logo: richusLogo,
@@ -136,6 +140,7 @@ export const productLines: ProductLine[] = [
       },
       {
         slug: "commercial",
+        href: "/products/commercial",
         name: "Commercial",
         showName: true,
         logo: richusLogo,

@@ -24,7 +24,7 @@ src/
     (site)/
       layout.tsx      skip link, Navbar, Footer — shared by every page
       page.tsx        homepage — composes the sections in order
-      about/ technology/ products/ products/bayaweaver/ applications/
+      about/ technology/ products/ products/[slug]/ applications/
       case-studies/ case-studies/hotel-kochi/ contact/
                       inner pages — each page's copy sits at the top of its page.tsx
   lib/
@@ -80,8 +80,8 @@ All animation is in client components via `useGSAP` and runs only under `prefers
 |---|---|
 | `/about` | Story, stats, two divisions, leadership (portrait placeholders) |
 | `/technology` | Drinking water + wastewater splits with video placeholders, working cycle |
-| `/products` | Drinking water and wastewater cards; Bayaweaver links to its page, others to `/contact` until their pages exist |
-| `/products/bayaweaver` | Product template — copy the folder for Tusker Gold, Narwhal Steller, Medium, Standard, Commercial |
+| `/products` | Drinking water and wastewater cards, each linking to its product page |
+| `/products/[slug]` | Six product pages from one template (`components/product/ProductDetail.tsx`) fed by `lib/products.ts`: bayaweaver, tusker-gold, narwhal-steller, medium, standard, commercial. Add a product by adding an entry. |
 | `/applications` | Four application rows with jump links, then the industries grid |
 | `/case-studies` | Filterable grid (client-side), testimonials |
 | `/case-studies/hotel-kochi` | Case study template — problem, solution, installation, outcome, gallery, videos, products |
@@ -93,7 +93,10 @@ Every inner page ends with the compact **CTA banner** (`components/inner/CtaBann
 
 - **Enquiry form:** there is no form backend yet — submitting validates the fields and opens the visitor's email app with the enquiry addressed to info@dubhemerak.com. Replace `onSubmit` in `EnquiryForm.tsx` with an API route (e.g. Resend) when ready.
 - **Placeholders** (dashed boxes / play buttons): leadership portraits, the Bayaweaver technical diagram, gallery photos, all videos and the Bayaweaver case study. Swap in real assets as the client supplies them.
-- "Downloads", "Download brochure" (opens an email request for now) and product pages other than Bayaweaver are still to come.
+- "Downloads" and "Download brochure / spec sheet" open an email request for now — swap in PDF links when the client supplies them.
+- **Product specs follow the client brochures** (STP brochure + Dubhe Richus brochure), which override the earlier wireframes where they disagree: Tusker Gold is model 1724 at 602 × 289.5 × 210.8 cm / 50,000 lbs (the wireframe had Bayaweaver's figures); the 14 "merits" sit under Tusker Gold; Bayaweaver shows its own "Features to know more" (80.5 × 70.5 × 158 cm, 447.5 lbs). Drinking-water specs come from the Richus brochure table. Prices are not shown (removed in Figma).
+- **Product images** in `public/images/products/` are cropped from the brochure spreads and the two annotated diagram pages supplied by the client. Narwhal Steller's diagram is still a placeholder.
+- `sitemap.xml` and `robots.txt` are generated from the routes (set `NEXT_PUBLIC_SITE_URL` on Vercel).
 - Phone, WhatsApp (`wa.me/919847922777`) and email links are live.
 - Copy written for this build (per review): testimonials subtitle, footer headline ("Engineered for tomorrow. Trusted since 1993.").
 - Hero uses a still image; to switch to video later, swap the `<Image>` in `components/sections/Hero.tsx` for a muted, looping `<video>` with the image as `poster`.

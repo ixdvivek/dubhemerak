@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import clsx from "clsx";
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
@@ -51,7 +52,7 @@ export function SplitText({
   title: string;
   /** Blue second half of a two-tone title. */
   accent?: string;
-  body: string | string[];
+  body: string | readonly string[];
   /** Large light title (44/52) instead of the 40/52 section title. */
   display?: boolean;
   children?: ReactNode;
@@ -70,7 +71,7 @@ export function SplitText({
       >
         {title} {accent && <span className="text-brand">{accent}</span>}
       </h2>
-      {(Array.isArray(body) ? body : [body]).map((p) => (
+      {(typeof body === "string" ? [body] : body).map((p) => (
         <p key={p.slice(0, 24)} data-reveal className="font-sans text-base leading-6 font-light md:text-lg">
           {p}
         </p>
@@ -87,6 +88,7 @@ export function Photo({
   ratio = "680/560",
   sizes = "(min-width: 1024px) 680px, 100vw",
   position,
+  contain,
   className,
 }: {
   src: string;
@@ -94,11 +96,20 @@ export function Photo({
   ratio?: string;
   sizes?: string;
   position?: string;
+  /** Show the whole image on a dark studio backdrop (wide product renders). */
+  contain?: boolean;
   className?: string;
 }) {
   return (
-    <MediaFrame className={clsx("bg-mist", className)} style={{ aspectRatio: ratio }}>
-      <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" style={{ objectPosition: position }} />
+    <MediaFrame className={clsx(contain ? "bg-[#0d0e10]" : "bg-mist", className)} style={{ aspectRatio: ratio }}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes={sizes}
+        className={contain ? "object-contain" : "object-cover"}
+        style={{ objectPosition: position }}
+      />
     </MediaFrame>
   );
 }
@@ -195,12 +206,15 @@ export function Chip({ children, dark, href }: { children: ReactNode; dark?: boo
     dark ? "border-white/25 text-white" : "border-black/15 text-black",
     href && (dark ? "hover:bg-white hover:text-ink" : "hover:border-ink hover:bg-ink hover:text-white"),
   );
-  return href ? (
+  if (!href) return <span className={cls}>{children}</span>;
+  return href.startsWith("/") ? (
+    <Link href={href} className={cls}>
+      {children}
+    </Link>
+  ) : (
     <a href={href} className={cls}>
       {children}
     </a>
-  ) : (
-    <span className={cls}>{children}</span>
   );
 }
 
