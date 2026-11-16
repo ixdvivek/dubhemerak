@@ -189,17 +189,17 @@ export default function HotelKochiCaseStudy() {
           />
           <ul className="grid gap-8 lg:grid-cols-2">
             {installed.map((p) => (
-              <li key={p.name} data-reveal className="group flex flex-col bg-white sm:flex-row">
-                <MediaFrame parallax={false} className="aspect-[4/3] shrink-0 sm:aspect-square sm:w-[42%] lg:w-[280px]">
+              <li key={p.name} data-reveal className="group flex flex-col bg-white sm:flex-row lg:flex-col xl:flex-row">
+                <MediaFrame parallax={false} className="aspect-[4/3] shrink-0 sm:aspect-square sm:w-[42%] lg:aspect-[16/10] lg:w-full xl:aspect-square xl:w-[42%]">
                   <Image
                     src={p.image.src}
                     alt={p.image.alt}
                     fill
-                    sizes="(min-width: 640px) 280px, 100vw"
+                    sizes="(min-width: 1280px) 280px, (min-width: 1024px) 50vw, (min-width: 640px) 280px, 100vw"
                     className="object-cover transition-transform duration-[1.2s] ease-out-expo group-hover:scale-105"
                   />
                 </MediaFrame>
-                <div className="flex flex-col items-start justify-center gap-3 p-8">
+                <div className="flex flex-col items-start justify-center gap-3 p-6 sm:p-8">
                   <Eyebrow>{p.eyebrow}</Eyebrow>
                   <h3 className="font-display text-[32px] leading-10">{p.name}</h3>
                   <p className="font-sans text-base leading-6 font-light text-black/75">{p.body}</p>

@@ -7,7 +7,7 @@ import { Parallax } from "@/components/motion/Parallax";
 export function AboutLead() {
   return (
     <section aria-labelledby="about-title" className="bg-mist">
-      <Reveal className="container-x flex flex-col gap-12 py-16 md:py-20 lg:flex-row lg:items-center">
+      <Reveal className="container-x flex flex-col gap-10 py-16 md:gap-12 md:py-20 xl:flex-row xl:items-center">
         <div className="flex flex-1 flex-col items-start gap-5">
           <p data-reveal className="font-sans text-base leading-6 font-semibold tracking-[1px]">
             {about.eyebrow}
@@ -15,7 +15,7 @@ export function AboutLead() {
           <h2
             id="about-title"
             data-reveal
-            className="max-w-[632px] font-display text-[clamp(2.5rem,1.3rem+3.2vw,3.75rem)] leading-none font-light tracking-[-0.5px]"
+            className="max-w-[632px] font-display text-[clamp(2rem,1.3rem+3.2vw,3.75rem)] leading-none font-light tracking-[-0.5px]"
           >
             {about.title}
           </h2>
@@ -29,13 +29,13 @@ export function AboutLead() {
           </div>
         </div>
 
-        <div data-reveal className="relative aspect-[680/560] w-full overflow-hidden lg:w-[680px] lg:shrink-0">
+        <div data-reveal className="relative aspect-[680/560] w-full overflow-hidden sm:aspect-[16/9] xl:aspect-[680/560] xl:w-[52%] xl:max-w-[680px] xl:shrink-0">
           <Parallax className="absolute -inset-y-[8%] inset-x-0">
             <Image
               src={about.image.src}
               alt={about.image.alt}
               fill
-              sizes="(min-width: 1024px) 680px, 100vw"
+              sizes="(min-width: 1280px) 680px, 100vw"
               className="object-cover"
             />
           </Parallax>

@@ -40,12 +40,12 @@ export function Stats() {
 
   return (
     <section ref={root} aria-label="Key facts" className="bg-white">
-      <ul className="container-x grid grid-cols-2 gap-x-6 gap-y-10 py-14 md:py-20 lg:flex lg:items-center lg:justify-between">
+      <ul className="container-x grid grid-cols-2 gap-x-6 gap-y-10 py-14 md:py-20 lg:grid-cols-4 lg:gap-x-8">
         {stats.map((s) => (
-          <li key={s.label} data-stat className="flex flex-col gap-3 sm:flex-row sm:items-center lg:w-[248px]">
+          <li key={s.label} data-stat className="flex flex-col gap-3 sm:flex-row sm:items-center lg:justify-center">
             <Image data-stat-icon src={s.icon} alt="" width={40} height={40} className="size-9 sm:size-10" />
             <div className="flex flex-col gap-1 whitespace-nowrap text-black sm:gap-2">
-              <p className="font-display text-[clamp(2.25rem,1.6rem+1.6vw,3rem)] leading-[1.08] font-thin">
+              <p className="font-display text-[clamp(2.25rem,1.4rem+1.6vw,3rem)] leading-[1.08] font-thin">
                 {"text" in s ? (
                   s.text
                 ) : (
@@ -55,7 +55,7 @@ export function Stats() {
                   </span>
                 )}
               </p>
-              <p className="font-sans text-base leading-6 font-light whitespace-normal sm:text-xl">{s.label}</p>
+              <p className="font-sans text-base leading-6 font-light whitespace-normal sm:text-lg lg:whitespace-nowrap xl:text-xl">{s.label}</p>
             </div>
           </li>
         ))}

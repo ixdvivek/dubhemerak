@@ -40,7 +40,7 @@ export function Hero() {
   const lines = ["Water treatment", "engineered for 2040,", "operating in 2026."];
 
   return (
-    <section ref={root} className="relative isolate flex min-h-[680px] h-svh overflow-hidden bg-[#04223f] text-white">
+    <section ref={root} className="relative isolate flex min-h-svh overflow-hidden bg-[#04223f] text-white">
       <div className="absolute inset-0 -z-10">
         <div data-hero-media className="absolute inset-0 will-change-transform">
           <Image
@@ -58,7 +58,7 @@ export function Hero() {
 
       <div
         data-hero-content
-        className="mx-auto flex w-full max-w-[1600px] flex-col justify-end gap-16 px-5 pt-32 pb-28 sm:px-8 md:gap-[119px] lg:px-12 xl:px-[100px] xl:pb-[108px]"
+        className="mx-auto flex w-full max-w-[1600px] flex-col justify-end gap-12 px-5 pt-36 pb-28 sm:px-8 md:gap-16 lg:px-12 xl:px-[100px] xl:pb-[108px] [@media(min-height:860px)]:md:gap-[119px]"
       >
         <div className="flex max-w-[575px] flex-col items-start gap-5">
           <p data-hero-fade className="flex items-center gap-3 font-sans text-sm leading-6 font-semibold tracking-[1px] sm:text-base">

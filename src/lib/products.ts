@@ -448,7 +448,7 @@ export const products: readonly ProductDetail[] = [
         ["3500", "Sq.ft, double storied"],
         ["5", "Taps at a time"],
       ],
-      image: { src: "/images/products/richus-closeup.webp", alt: "Close-up of a Dubhe Richus stainless steel cylinder", ratio: "680/600", position: "50% 30%" },
+      image: { src: "/images/products/thumb-standard.webp", alt: "Dubhe Richus Standard twin-cylinder filter against a sunlit garden wall", ratio: "680/600", position: "60% 50%" },
     },
     highlight: { ...richusHighlight, video: { src: "/images/richus-standard.webp", label: "How gravity filtration works" } },
     specs: [

@@ -16,15 +16,15 @@ function ProductBlock({ product, index, total }: { product: Product; index: numb
     <article
       data-product
       aria-labelledby={`${product.slug}-title`}
-      className="relative h-svh max-h-[1080px] min-h-[640px] overflow-hidden bg-black text-white lg:sticky lg:top-0"
+      className="relative overflow-hidden bg-black text-white lg:sticky lg:top-0 lg:h-svh lg:max-h-[1080px] lg:min-h-[640px]"
     >
-      <div data-product-media className="absolute inset-0 will-change-transform">
+      <div data-product-media className="relative aspect-[4/3] will-change-transform sm:aspect-[16/10] lg:absolute lg:inset-0 lg:aspect-auto">
         <Image
           src={product.image.src}
           alt={product.image.alt}
           fill
           sizes="100vw"
-          className="object-cover object-[var(--pos-m)] lg:object-[var(--pos)]"
+          className="object-cover object-[var(--pos-m)] sm:object-[var(--pos)]"
           style={
             {
               "--pos": product.image.position ?? "50% 50%",
@@ -35,7 +35,7 @@ function ProductBlock({ product, index, total }: { product: Product; index: numb
         {product.overlay && (
           <div
             data-product-overlay
-            className="absolute top-[38%] left-[18%] w-[78%] md:top-[30.5%] md:left-[44%] md:w-[48.5%]"
+            className="absolute top-[30%] left-[22%] w-[70%] lg:top-[30.5%] lg:left-[44%] lg:w-[48.5%]"
           >
             <Image
               src={product.overlay.src}
@@ -47,23 +47,24 @@ function ProductBlock({ product, index, total }: { product: Product; index: numb
             />
           </div>
         )}
-        <div className="absolute inset-0" style={{ backgroundImage: product.gradient }} />
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/70 to-transparent md:hidden" />
+        <div className="absolute inset-0 hidden lg:block" style={{ backgroundImage: product.gradient }} />
+        {/* Below lg the photo sits above the copy, so it just fades into the black panel. */}
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent lg:hidden" />
       </div>
 
       <div data-product-dim className="pointer-events-none absolute inset-0 bg-black opacity-0" />
 
-      <p className="absolute top-24 right-5 font-sans text-sm leading-5 tracking-[1.5px] text-white/70 sm:right-8 lg:top-[120px] xl:right-[118px]">
+      <p className="absolute top-5 right-5 font-sans text-sm leading-5 tracking-[1.5px] text-white/70 sm:right-8 lg:top-[120px] xl:right-[118px]">
         {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
       </p>
 
       <div
         className={clsx(
-          "container-x relative flex h-full flex-col justify-end pb-16 lg:pb-[120px]",
-          right && "md:items-end md:text-right",
+          "container-x relative flex flex-col pt-6 pb-14 sm:pt-8 lg:h-full lg:justify-end lg:pt-0 lg:pb-[120px]",
+          right && "lg:items-end lg:text-right",
         )}
       >
-        <div data-product-content className={clsx("flex max-w-[560px] flex-col items-start gap-6", right && "md:items-end")}>
+        <div data-product-content className={clsx("flex max-w-[560px] flex-col items-start gap-6", right && "lg:items-end")}>
           <div className="flex flex-col gap-3">
             {product.logo.chip ? (
               <span className="w-fit rounded-md bg-white/92 px-3.5 py-2.5 md:self-auto">
@@ -141,7 +142,7 @@ export function ProductLine({ line }: { line: ProductLineData }) {
 
           // Stacked-card effect: on desktop, the pinned block recedes as the next one slides over it.
           const next = blocks[i + 1];
-          if (!next) return;
+          if (!next || !window.matchMedia("(min-width: 1024px)").matches) return;
           gsap
             .timeline({
               scrollTrigger: { trigger: next, start: "top bottom", end: "top top", scrub: true },

@@ -123,7 +123,7 @@ export const productLines: ProductLine[] = [
         logo: richusLogo,
         description: "Twin-cylinder gravity filtration for single-storied homes. No electricity, no chemicals.",
         tags: ["1250 Ltr/day", "up to 1500 sq.ft single storied house"],
-        image: { src: "/images/richus-medium.webp", alt: "Dubhe Richus Medium twin-cylinder filter in a black frame against a sunlit wall", mobilePosition: "68% 50%" },
+        image: { src: "/images/richus-medium.webp", alt: "Dubhe Richus Medium twin-cylinder filter in a black frame against a sunlit wall", mobilePosition: "88% 50%" },
         gradient: shade,
       },
       {
@@ -134,7 +134,7 @@ export const productLines: ProductLine[] = [
         logo: richusLogo,
         description: "Our most-installed model - steady flow across five taps for a full household.",
         tags: ["2500 Ltr/day", "up to 3500 sq.ft double storied house"],
-        image: { src: "/images/richus-standard.webp", alt: "Twin-cylinder Dubhe Richus Standard filter against a sunlit garden wall", mobilePosition: "68% 50%" },
+        image: { src: "/images/richus-standard.webp", alt: "Twin-cylinder Dubhe Richus Standard filter against a sunlit garden wall", mobilePosition: "88% 50%" },
         // Text sits left: the new photo places the unit on the right.
         gradient: shade,
       },
@@ -146,7 +146,7 @@ export const productLines: ProductLine[] = [
         logo: richusLogo,
         description: "Super Jet Technology sized to the property, built to collect treated water in bulk.",
         tags: ["Customized design", "apartments, hotels, hospitals"],
-        image: { src: "/images/commercial-2026.webp", alt: "Four-cylinder Dubhe Richus Commercial system against a sunlit wall", mobilePosition: "65% 50%" },
+        image: { src: "/images/commercial-2026.webp", alt: "Four-cylinder Dubhe Richus Commercial system against a sunlit wall", mobilePosition: "85% 50%" },
         gradient: shade,
       },
     ],
@@ -284,6 +284,7 @@ export const footer = {
       title: "Resources",
       links: [
         { label: "Case studies", href: "/case-studies" },
+        { label: "Testimonials", href: "/testimonials" },
         { label: "Contact", href: "/contact" },
         { label: "Downloads", href: "#" },
       ],

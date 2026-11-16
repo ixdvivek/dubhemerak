@@ -72,7 +72,7 @@ export function Navbar() {
         scrolled || open ? "bg-black/55 backdrop-blur-xl" : "bg-transparent",
       )}
     >
-      <nav aria-label="Primary" className="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-4 sm:px-8 lg:py-5 xl:px-8">
+      <nav aria-label="Primary" className="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-4 sm:px-8 xl:py-5">
         <Link href="/" data-nav-item aria-label="Dubhe Merak — home" className="shrink-0">
           <Image
             src="/images/logo-dubhe-merak-white.png"
@@ -84,7 +84,7 @@ export function Navbar() {
           />
         </Link>
 
-        <ul className="hidden items-center gap-[15px] lg:flex">
+        <ul className="hidden items-center gap-[15px] xl:flex">
           {navLinks.map((link) => (
             <li key={link.label} data-nav-item>
               <Link
@@ -112,7 +112,7 @@ export function Navbar() {
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((v) => !v)}
-            className="relative flex size-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur lg:hidden"
+            className="relative flex size-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur xl:hidden"
           >
             <span
               className={clsx(
@@ -134,7 +134,7 @@ export function Navbar() {
         id="mobile-menu"
         ref={menuRef}
         hidden={!open}
-        className="h-[calc(100svh-76px)] overflow-y-auto px-5 pt-6 pb-10 sm:px-8 lg:hidden"
+        className="h-[calc(100svh-76px)] overflow-y-auto px-5 pt-6 pb-10 sm:px-8 xl:hidden"
       >
         <ul className="flex flex-col">
           {navLinks.map((link) => (
