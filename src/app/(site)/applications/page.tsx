@@ -57,7 +57,7 @@ export default function ApplicationsPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/industry-malls.webp", alt: "", position: "80% 50%" }}
+        image={{ src: "/images/pages/applications-banner.webp", alt: "", position: "55% 50%" }}
         crumbs={[{ label: "Home", href: "/" }, { label: "Applications" }]}
         title="Built around the problem you're solving."
         description="Hospitals, hotels, businesses and campuses each ask something different of their water. Here's how we answer each one."

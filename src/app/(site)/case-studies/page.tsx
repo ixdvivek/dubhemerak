@@ -20,7 +20,7 @@ export default function CaseStudiesPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/case-2.webp", alt: "", position: "50% 40%" }}
+        image={{ src: "/images/pages/case-studies-banner.webp", alt: "", position: "60% 50%" }}
         crumbs={[{ label: "Home", href: "/" }, { label: "Case studies" }]}
         title="Real installs, structured the same way every time."
         description="Every case study follows the same four steps — the problem, the solution we proposed, how it was installed, and what changed."

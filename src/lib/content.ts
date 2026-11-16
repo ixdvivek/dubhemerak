@@ -167,7 +167,7 @@ export const about = {
   title: "Three decades of making water simple.",
   body: "Since 1993, we have built reliable, sustainable water treatment — from gravity-powered drinking water systems under Dubhe Richus to fully automatic effluent plants under Dubhe Merak. One company, two disciplines, one standard.",
   cta: { label: "Know more about us", href: "/about" },
-  image: { src: "/images/about.webp", alt: "Dubhe Richus twin-cylinder filter installed beside a home entrance" },
+  image: { src: "/images/pages/about-lead.webp", alt: "A water drop shaped around the number 30, resting on a calm mountain lake" },
 } as const;
 
 export const caseStudies = [

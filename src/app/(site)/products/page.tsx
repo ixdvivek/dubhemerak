@@ -5,7 +5,7 @@ import { PageHero } from "@/components/inner/PageHero";
 import { CtaBanner } from "@/components/inner/CtaBanner";
 import { sectionY } from "@/components/inner/blocks";
 import { Button } from "@/components/ui/Button";
-import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { MediaFrame } from "@/components/motion/MediaFrame";
 
@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 };
 
 type Card = {
-  eyebrow: string;
   name: string;
   spec: string;
   href: string;
@@ -26,21 +25,18 @@ type Card = {
 
 const drinking: Card[] = [
   {
-    eyebrow: "Drinking water",
     name: "Medium",
     spec: "1250 Ltr/day · up to 1500 sq.ft single storied house",
     href: "/products/medium",
     image: { src: "/images/products/thumb-medium.webp", alt: "Dubhe Richus Medium twin-cylinder filter in a black frame" },
   },
   {
-    eyebrow: "Drinking water",
     name: "Standard",
     spec: "2500 Ltr/day · up to 3500 sq.ft double storied house",
     href: "/products/standard",
     image: { src: "/images/products/thumb-standard.webp", alt: "Twin-cylinder Dubhe Richus Standard filter against a sunlit wall" },
   },
   {
-    eyebrow: "Drinking water",
     name: "Commercial",
     spec: "Customized design · apartments, hotels, hospitals",
     href: "/products/commercial",
@@ -50,7 +46,6 @@ const drinking: Card[] = [
 
 const wastewater: Card[] = [
   {
-    eyebrow: "Wastewater",
     name: "Bayaweaver",
     spec: "Chemical free · maintenance free · zero liquid discharge",
     href: "/products/bayaweaver",
@@ -58,7 +53,6 @@ const wastewater: Card[] = [
     meta: { label: "Models", value: "0724 – 5024" },
   },
   {
-    eyebrow: "Wastewater",
     name: "Tusker Gold",
     spec: "Heavy-duty sewage treatment · fully automatic AI system",
     href: "/products/tusker-gold",
@@ -66,7 +60,6 @@ const wastewater: Card[] = [
     meta: { label: "Model", value: "1724" },
   },
   {
-    eyebrow: "Effluent",
     name: "Narwhal Steller",
     spec: "Effluent treatment plant · MBR technology",
     href: "/products/narwhal-steller",
@@ -91,7 +84,6 @@ function ProductCard({ card, dark }: { card: Card; dark?: boolean }) {
         />
       </MediaFrame>
       <div className="flex flex-1 flex-col gap-3 p-8">
-        <Eyebrow>{card.eyebrow}</Eyebrow>
         <h3 className={clsx("font-display text-[32px] leading-10 font-normal", dark && "text-white")}>{card.name}</h3>
         <p className={clsx("font-sans text-base leading-6 font-light", dark ? "text-white/75" : "text-black/75")}>{card.spec}</p>
         {card.meta ? (
@@ -121,7 +113,7 @@ export default function ProductsPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/richus-standard.webp", alt: "", position: "68% 50%" }}
+        image={{ src: "/images/pages/products-banner.webp", alt: "", position: "58% 50%" }}
         crumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
         title="The full lineup."
         description="Gravity-powered drinking water systems and fully automatic wastewater plants — each sized to the site it serves."
@@ -131,15 +123,9 @@ export default function ProductsPage() {
         <Reveal className={`container-x flex flex-col gap-12 ${sectionY}`}>
           <SectionHeading
             id="drinking-title"
-            eyebrow="Drinking water · Dubhe Richus"
             title={["Medium, Standard", "& Commercial."]}
             description="Gravity-powered, chemical-free filtration systems sized to the property — no electricity, minimal maintenance."
             width={760}
-            action={
-              <Button variant="outline" href="/contact">
-                Compare models
-              </Button>
-            }
           />
           <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {drinking.map((c) => (
@@ -153,16 +139,10 @@ export default function ProductsPage() {
         <Reveal className={`container-x flex flex-col gap-12 ${sectionY}`}>
           <SectionHeading
             id="wastewater-title"
-            eyebrow="Wastewater & effluent · Dubhe Merak"
             title={["Bayaweaver, Tusker Gold", "& Narwhal Steller."]}
             description="Fully automatic, AI-assisted treatment plants — each with its own identity and model line-up."
             tone="dark"
             width={960}
-            action={
-              <Button variant="outline-light" href="/contact">
-                Talk to an expert
-              </Button>
-            }
           />
           <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {wastewater.map((c) => (
