@@ -21,7 +21,7 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/contact.webp", alt: "", position: "60% 40%" }}
+        image={{ src: "/images/pages/contact-banner.webp", alt: "", position: "45% 50%" }}
         crumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
         title="Tell us what you're solving for."
         description="Private commercial enquiries — hospitals, hotels, small businesses — get a response within one business day."

@@ -24,7 +24,7 @@ export default function TechnologyPage() {
   return (
     <>
       <PageHero
-        image={{ src: "/images/pages/technology-hero.webp", alt: "", position: "50% 50%" }}
+        image={{ src: "/images/pages/technology-banner.webp", alt: "", position: "60% 50%" }}
         crumbs={[{ label: "Home", href: "/" }, { label: "Technology" }]}
         title="Engineering that removes the problem, not just the symptom."
         description="Two technologies, one idea: treat water the way nature does — with gravity, stone and bacteria — and let automation do the rest."

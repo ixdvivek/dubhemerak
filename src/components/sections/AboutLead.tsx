@@ -36,7 +36,7 @@ export function AboutLead() {
               alt={about.image.alt}
               fill
               sizes="(min-width: 1024px) 680px, 100vw"
-              className="object-cover object-[89%_46%]"
+              className="object-cover"
             />
           </Parallax>
         </div>
