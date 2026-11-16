@@ -8,14 +8,14 @@ import { Parallax } from "@/components/motion/Parallax";
 export function ContactCta() {
   return (
     <section id="contact" aria-labelledby="contact-title" className="scroll-mt-24 bg-white">
-      <Reveal className="container-x flex flex-col gap-12 py-16 md:py-20 lg:flex-row lg:items-center">
-        <div data-reveal className="relative aspect-square w-full overflow-hidden text-white lg:w-[680px] lg:shrink-0">
+      <Reveal className="container-x flex flex-col gap-10 py-16 md:gap-12 md:py-20 xl:flex-row xl:items-center">
+        <div data-reveal className="relative aspect-square w-full overflow-hidden text-white sm:aspect-[16/10] xl:aspect-square xl:w-[52%] xl:max-w-[680px] xl:shrink-0">
           <Parallax className="absolute -inset-y-[8%] inset-x-0">
             <Image
               src="/images/contact.webp"
               alt="A Dubhe consultant talking a client through a proposal"
               fill
-              sizes="(min-width: 1024px) 680px, 100vw"
+              sizes="(min-width: 1280px) 680px, 100vw"
               className="object-cover"
             />
           </Parallax>
@@ -27,9 +27,9 @@ export function ContactCta() {
             height={108}
             className="absolute bottom-0 left-0 h-auto w-[150px] sm:w-[278px]"
           />
-          <div className="absolute right-5 bottom-28 flex w-[min(264px,70%)] flex-col items-end gap-6 sm:right-[60px] sm:bottom-[108px]">
+          <div className="absolute right-5 bottom-24 flex w-[min(264px,70%)] flex-col items-end gap-4 sm:right-[60px] sm:bottom-[108px] sm:gap-6">
             <span className="h-px w-full bg-white" />
-            <p className="hidden text-right font-display text-base leading-5 font-light sm:block">
+            <p className="text-right font-display text-sm leading-5 font-light sm:text-base">
               Chemical-free, electricity-free drinking water systems and fully automatic effluent treatment plants
             </p>
             <Button href={contact.whatsappHref} target="_blank" rel="noopener noreferrer">
@@ -45,7 +45,7 @@ export function ContactCta() {
           <h2
             id="contact-title"
             data-reveal
-            className="font-display text-[clamp(2.5rem,1.3rem+3.2vw,3.75rem)] leading-none font-light tracking-[-0.5px]"
+            className="font-display text-[clamp(2rem,1.3rem+3.2vw,3.75rem)] leading-none font-light tracking-[-0.5px]"
           >
             Tell us what you&apos;re solving for, with our expert consultants.
           </h2>

@@ -27,13 +27,14 @@ export function Split({ media, children, textFirst, id, className, padding = sec
     <section id={id} aria-label={label} className={clsx("scroll-mt-24", className)}>
       <Reveal
         className={clsx(
-          "container-x grid items-center gap-10 md:gap-14 lg:gap-24",
-          textFirst ? "lg:grid-cols-[584fr_680fr]" : "lg:grid-cols-[680fr_584fr]",
+          "container-x grid items-center gap-10 md:gap-14 lg:grid-cols-2 xl:gap-24",
+          textFirst ? "xl:grid-cols-[584fr_680fr]" : "xl:grid-cols-[680fr_584fr]",
           padding,
         )}
       >
-        <div className={clsx(textFirst && "lg:order-2")}>{media}</div>
-        <div className="flex flex-col items-start gap-5">{children}</div>
+        {/* Text always reads first on small screens; desktop keeps the alternating layout. */}
+        <div className={clsx("order-2", textFirst ? "lg:order-2" : "lg:order-1")}>{media}</div>
+        <div className={clsx("order-1 flex flex-col items-start gap-5", textFirst ? "lg:order-1" : "lg:order-2")}>{children}</div>
       </Reveal>
     </section>
   );
@@ -101,7 +102,11 @@ export function Photo({
   className?: string;
 }) {
   return (
-    <MediaFrame className={clsx(contain ? "bg-[#0d0e10]" : "bg-mist", className)} style={{ aspectRatio: ratio }}>
+    <MediaFrame
+      // Capped on tablets so smaller source photos are never stretched across the full width.
+      className={clsx("w-full max-w-[640px] lg:max-w-none", contain ? "bg-[#0d0e10]" : "bg-mist", className)}
+      style={{ aspectRatio: ratio }}
+    >
       <Image
         src={src}
         alt={alt}
